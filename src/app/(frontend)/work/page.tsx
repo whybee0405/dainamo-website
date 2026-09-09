@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import { PageHead } from '../../../components/sections/PageHead'
 import { CaseStudy } from '../../../components/sections/CaseStudy'
+import { ClientGallery } from '../../../components/sections/ClientGallery'
 import { ConversionBand } from '../../../components/sections/ConversionBand'
 import { breadcrumbSchema, jsonLd, projectSchema } from '../../../lib/schema'
 
@@ -52,6 +53,8 @@ export default function WorkPage() {
       <PageHead title="Work we can show you." answer={ANSWER} crumbs={crumbs} />
 
       <CaseStudy />
+
+      <ClientGallery />
 
       <section className="detail section" aria-labelledby="scope-heading">
         <div className="shell detail__grid">

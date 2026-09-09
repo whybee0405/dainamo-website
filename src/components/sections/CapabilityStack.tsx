@@ -8,9 +8,23 @@ import { useReducedMotion } from 'motion/react'
 import { ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
 
 import { Frame } from '../media/Frame'
+import { ClientPhoto } from '../media/ClientPhoto'
 import { flagshipCapabilities } from '../../content/capabilities'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const clientPhotos = {
+  'epoxy-and-resin-flooring': { category: 'epoxy', slug: 'epoxy-01' },
+  waterproofing: {
+    category: 'waterproofing-flat-roof-floor-grinding-joint-sealant',
+    slug: 'waterproofing-flat-roof-floor-grinding-joint-sealant-01',
+  },
+  'damp-proofing': {
+    category: 'floor-grinding-decor-plaster',
+    slug: 'floor-grinding-decor-plaster-01',
+  },
+  'maintenance-contracts': { category: 'roof-maintenance', slug: 'roof-maintenance-01' },
+} as const
 
 /**
  * The four core systems, pinned one at a time.
@@ -78,12 +92,21 @@ export function CapabilityStack() {
             <span className="capability-card__veil" aria-hidden="true" />
             <div className="capability-card__inner shell">
               <div className="capability-card__media">
-                <Frame
-                  media={capability.media}
-                  alt={`${capability.name} carried out by Dainamo Holdings`}
-                  sizes="(min-width: 900px) 46vw, 100vw"
-                  ratio={1.22}
-                />
+                {clientPhotos[capability.slug as keyof typeof clientPhotos] ? (
+                  <ClientPhoto
+                    {...clientPhotos[capability.slug as keyof typeof clientPhotos]}
+                    alt={`${capability.name} work carried out by Dainamo Holdings`}
+                    sizes="(min-width: 900px) 46vw, 100vw"
+                    ratio={1.22}
+                  />
+                ) : (
+                  <Frame
+                    media={capability.media}
+                    alt={`${capability.name} carried out by Dainamo Holdings`}
+                    sizes="(min-width: 900px) 46vw, 100vw"
+                    ratio={1.22}
+                  />
+                )}
               </div>
 
               <div className="capability-card__body">

@@ -1,0 +1,1069 @@
+{
+  "dry-walling": {
+    "label": "Dry walling",
+    "images": [
+      {
+        "slug": "dry-walling-01",
+        "source": "dry-walling-01.jpeg",
+        "category": "dry-walling",
+        "label": "Dry walling",
+        "alt": "Dry walling work by Dainamo Holdings",
+        "aspect": 0.45,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "dry-walling-02",
+        "source": "dry-walling-02.jpeg",
+        "category": "dry-walling",
+        "label": "Dry walling",
+        "alt": "Dry walling work by Dainamo Holdings",
+        "aspect": 0.45,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "dry-walling-03",
+        "source": "dry-walling-03.jpeg",
+        "category": "dry-walling",
+        "label": "Dry walling",
+        "alt": "Dry walling work by Dainamo Holdings",
+        "aspect": 0.45,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "dry-walling-04",
+        "source": "dry-walling-04.jpeg",
+        "category": "dry-walling",
+        "label": "Dry walling",
+        "alt": "Dry walling work by Dainamo Holdings",
+        "aspect": 2.2222,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "dry-walling-05",
+        "source": "dry-walling-05.jpeg",
+        "category": "dry-walling",
+        "label": "Dry walling",
+        "alt": "Dry walling work by Dainamo Holdings",
+        "aspect": 2.2222,
+        "widths": [
+          480,
+          1200
+        ]
+      }
+    ]
+  },
+  "epoxy": {
+    "label": "Epoxy flooring",
+    "images": [
+      {
+        "slug": "epoxy-01",
+        "source": "epoxy-01.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-02",
+        "source": "epoxy-02.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-03",
+        "source": "epoxy-03.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 0.7627,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "epoxy-04",
+        "source": "epoxy-04.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 2.1136,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-05",
+        "source": "epoxy-05.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 2.1136,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-06",
+        "source": "epoxy-06.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 2.1136,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-07",
+        "source": "epoxy-07.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 0.4731,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "epoxy-08",
+        "source": "epoxy-08.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 0.4731,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "epoxy-09",
+        "source": "epoxy-09.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-10",
+        "source": "epoxy-10.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 1.7778,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-11",
+        "source": "epoxy-11.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-12",
+        "source": "epoxy-12.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-13",
+        "source": "epoxy-13.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-14",
+        "source": "epoxy-14.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 2.1136,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-15",
+        "source": "epoxy-15.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 0.4731,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "epoxy-16",
+        "source": "epoxy-16.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 0.4731,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "epoxy-17",
+        "source": "epoxy-17.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 2.1136,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-18",
+        "source": "epoxy-18.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 1.777,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-19",
+        "source": "epoxy-19.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 1.7778,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-20",
+        "source": "epoxy-20.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 1.777,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-21",
+        "source": "epoxy-21.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 1.777,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-22",
+        "source": "epoxy-22.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-23",
+        "source": "epoxy-23.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "epoxy-24",
+        "source": "epoxy-24.jpeg",
+        "category": "epoxy",
+        "label": "Epoxy flooring",
+        "alt": "Epoxy flooring work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      }
+    ]
+  },
+  "floor-grinding-decor-plaster": {
+    "label": "Floor grinding and decorative plaster",
+    "images": [
+      {
+        "slug": "floor-grinding-decor-plaster-01",
+        "source": "floor-grinding-decor-plaster-01.jpeg",
+        "category": "floor-grinding-decor-plaster",
+        "label": "Floor grinding and decorative plaster",
+        "alt": "Floor grinding and decorative plaster work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "floor-grinding-decor-plaster-02",
+        "source": "floor-grinding-decor-plaster-02.jpeg",
+        "category": "floor-grinding-decor-plaster",
+        "label": "Floor grinding and decorative plaster",
+        "alt": "Floor grinding and decorative plaster work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "floor-grinding-decor-plaster-03",
+        "source": "floor-grinding-decor-plaster-03.jpeg",
+        "category": "floor-grinding-decor-plaster",
+        "label": "Floor grinding and decorative plaster",
+        "alt": "Floor grinding and decorative plaster work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "floor-grinding-decor-plaster-04",
+        "source": "floor-grinding-decor-plaster-04.jpeg",
+        "category": "floor-grinding-decor-plaster",
+        "label": "Floor grinding and decorative plaster",
+        "alt": "Floor grinding and decorative plaster work by Dainamo Holdings",
+        "aspect": 0.7525,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "floor-grinding-decor-plaster-05",
+        "source": "floor-grinding-decor-plaster-05.jpeg",
+        "category": "floor-grinding-decor-plaster",
+        "label": "Floor grinding and decorative plaster",
+        "alt": "Floor grinding and decorative plaster work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      }
+    ]
+  },
+  "pothole-repairs": {
+    "label": "Pothole repairs",
+    "images": [
+      {
+        "slug": "pothole-repairs-01",
+        "source": "pothole-repairs-01.jpeg",
+        "category": "pothole-repairs",
+        "label": "Pothole repairs",
+        "alt": "Pothole repairs work by Dainamo Holdings",
+        "aspect": 0.7525,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "pothole-repairs-02",
+        "source": "pothole-repairs-02.jpeg",
+        "category": "pothole-repairs",
+        "label": "Pothole repairs",
+        "alt": "Pothole repairs work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "pothole-repairs-03",
+        "source": "pothole-repairs-03.jpeg",
+        "category": "pothole-repairs",
+        "label": "Pothole repairs",
+        "alt": "Pothole repairs work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "pothole-repairs-04",
+        "source": "pothole-repairs-04.jpeg",
+        "category": "pothole-repairs",
+        "label": "Pothole repairs",
+        "alt": "Pothole repairs work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "pothole-repairs-05",
+        "source": "pothole-repairs-05.jpeg",
+        "category": "pothole-repairs",
+        "label": "Pothole repairs",
+        "alt": "Pothole repairs work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "pothole-repairs-06",
+        "source": "pothole-repairs-06.jpeg",
+        "category": "pothole-repairs",
+        "label": "Pothole repairs",
+        "alt": "Pothole repairs work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "pothole-repairs-07",
+        "source": "pothole-repairs-07.jpeg",
+        "category": "pothole-repairs",
+        "label": "Pothole repairs",
+        "alt": "Pothole repairs work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "pothole-repairs-08",
+        "source": "pothole-repairs-08.jpeg",
+        "category": "pothole-repairs",
+        "label": "Pothole repairs",
+        "alt": "Pothole repairs work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      }
+    ]
+  },
+  "roof-maintenance": {
+    "label": "Roof maintenance",
+    "images": [
+      {
+        "slug": "roof-maintenance-01",
+        "source": "roof-maintenance-01.jpeg",
+        "category": "roof-maintenance",
+        "label": "Roof maintenance",
+        "alt": "Roof maintenance work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "roof-maintenance-02",
+        "source": "roof-maintenance-02.jpeg",
+        "category": "roof-maintenance",
+        "label": "Roof maintenance",
+        "alt": "Roof maintenance work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "roof-maintenance-03",
+        "source": "roof-maintenance-03.jpeg",
+        "category": "roof-maintenance",
+        "label": "Roof maintenance",
+        "alt": "Roof maintenance work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "roof-maintenance-04",
+        "source": "roof-maintenance-04.jpeg",
+        "category": "roof-maintenance",
+        "label": "Roof maintenance",
+        "alt": "Roof maintenance work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "roof-maintenance-05",
+        "source": "roof-maintenance-05.jpeg",
+        "category": "roof-maintenance",
+        "label": "Roof maintenance",
+        "alt": "Roof maintenance work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "roof-maintenance-06",
+        "source": "roof-maintenance-06.jpeg",
+        "category": "roof-maintenance",
+        "label": "Roof maintenance",
+        "alt": "Roof maintenance work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "roof-maintenance-07",
+        "source": "roof-maintenance-07.jpeg",
+        "category": "roof-maintenance",
+        "label": "Roof maintenance",
+        "alt": "Roof maintenance work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "roof-maintenance-08",
+        "source": "roof-maintenance-08.jpeg",
+        "category": "roof-maintenance",
+        "label": "Roof maintenance",
+        "alt": "Roof maintenance work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "roof-maintenance-09",
+        "source": "roof-maintenance-09.jpeg",
+        "category": "roof-maintenance",
+        "label": "Roof maintenance",
+        "alt": "Roof maintenance work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "roof-maintenance-10",
+        "source": "roof-maintenance-10.jpeg",
+        "category": "roof-maintenance",
+        "label": "Roof maintenance",
+        "alt": "Roof maintenance work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "roof-maintenance-11",
+        "source": "roof-maintenance-11.jpeg",
+        "category": "roof-maintenance",
+        "label": "Roof maintenance",
+        "alt": "Roof maintenance work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      }
+    ]
+  },
+  "thermoplastic": {
+    "label": "Thermoplastic and outdoor works",
+    "images": [
+      {
+        "slug": "thermoplastic-01",
+        "source": "thermoplastic-01.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "thermoplastic-02",
+        "source": "thermoplastic-02.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "thermoplastic-03",
+        "source": "thermoplastic-03.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "thermoplastic-04",
+        "source": "thermoplastic-04.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "thermoplastic-05",
+        "source": "thermoplastic-05.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 1.7778,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "thermoplastic-06",
+        "source": "thermoplastic-06.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "thermoplastic-07",
+        "source": "thermoplastic-07.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "thermoplastic-08",
+        "source": "thermoplastic-08.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "thermoplastic-09",
+        "source": "thermoplastic-09.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "thermoplastic-10",
+        "source": "thermoplastic-10.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "thermoplastic-11",
+        "source": "thermoplastic-11.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "thermoplastic-12",
+        "source": "thermoplastic-12.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "thermoplastic-13",
+        "source": "thermoplastic-13.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "thermoplastic-14",
+        "source": "thermoplastic-14.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "thermoplastic-15",
+        "source": "thermoplastic-15.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "thermoplastic-16",
+        "source": "thermoplastic-16.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "thermoplastic-17",
+        "source": "thermoplastic-17.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "thermoplastic-18",
+        "source": "thermoplastic-18.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "thermoplastic-19",
+        "source": "thermoplastic-19.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "thermoplastic-20",
+        "source": "thermoplastic-20.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 0.75,
+        "widths": [
+          480
+        ]
+      },
+      {
+        "slug": "thermoplastic-21",
+        "source": "thermoplastic-21.jpeg",
+        "category": "thermoplastic",
+        "label": "Thermoplastic and outdoor works",
+        "alt": "Thermoplastic and outdoor works work by Dainamo Holdings",
+        "aspect": 1.3333,
+        "widths": [
+          480,
+          1200
+        ]
+      }
+    ]
+  },
+  "waterproofing-flat-roof-floor-grinding-joint-sealant": {
+    "label": "Waterproofing, floor grinding and joint sealant",
+    "images": [
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-01",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-01.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-02",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-02.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 0.7525,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-03",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-03.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-04",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-04.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-05",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-05.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-06",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-06.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-07",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-07.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-08",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-08.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-09",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-09.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-10",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-10.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 0.7525,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-11",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-11.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 0.7525,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-12",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-12.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 0.7525,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-13",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-13.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      },
+      {
+        "slug": "waterproofing-flat-roof-floor-grinding-joint-sealant-14",
+        "source": "waterproofing-flat-roof-floor-grinding-joint-sealant-14.jpeg",
+        "category": "waterproofing-flat-roof-floor-grinding-joint-sealant",
+        "label": "Waterproofing, floor grinding and joint sealant",
+        "alt": "Waterproofing, floor grinding and joint sealant work by Dainamo Holdings",
+        "aspect": 1.3289,
+        "widths": [
+          480,
+          1200
+        ]
+      }
+    ]
+  }
+}

@@ -8,6 +8,7 @@
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start -p 3111",
     "lint": "next lint",
+    "media:client": "node src/scripts/build-client-media.mjs",
     "seed": "cross-env NODE_OPTIONS=--no-deprecation tsx src/scripts/seed.ts",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload"
