@@ -1,0 +1,210 @@
+/* ==========================================================================
+   Pointer companion
+   Only ever active on precise pointers with motion allowed. Everything is
+   transform and opacity so it stays on the compositor.
+   ========================================================================== */
+
+.cursor-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  contain: strict;
+}
+
+html.has-cursor,
+html.has-cursor body,
+html.has-cursor a,
+html.has-cursor button,
+html.has-cursor [role='button'],
+html.has-cursor label,
+html.has-cursor summary,
+html.has-cursor select {
+  cursor: none;
+}
+
+/* Typing is the one place a real caret beats anything custom. */
+html.has-cursor input,
+html.has-cursor textarea,
+html.has-cursor [contenteditable='true'] {
+  cursor: text;
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+/* --- Dot: pinned to the true pointer position ---------------------------- */
+
+.cursor-dot::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--color-accent-500);
+  opacity: 0;
+  transform: scale(1);
+  transition:
+    opacity 160ms ease,
+    transform 160ms var(--ease-out-strong);
+}
+
+.cursor-dot[data-visible]::after {
+  opacity: 1;
+}
+
+/* When the ring takes over as the affordance, the dot steps back. */
+.cursor-dot[data-state='link']::after,
+.cursor-dot[data-state='cta']::after,
+.cursor-dot[data-state='media']::after,
+.cursor-dot[data-state='drag']::after {
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.cursor-dot[data-state='text']::after {
+  width: 2px;
+  height: 22px;
+  margin: -11px 0 0 -1px;
+  border-radius: 1px;
+}
+
+/* --- Ring: trails on a spring -------------------------------------------- */
+
+.cursor-ring__shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border-radius: 50%;
+  border: 1px solid rgba(244, 101, 15, 0.7);
+  background: transparent;
+  opacity: 0;
+  transform: scale(0.62);
+  transition:
+    transform 260ms var(--ease-out-strong),
+    opacity 200ms ease,
+    background-color 260ms ease,
+    border-color 260ms ease;
+}
+
+.cursor-ring[data-visible] .cursor-ring__shape {
+  opacity: 1;
+}
+
+.cursor-ring[data-state='link'] .cursor-ring__shape {
+  transform: scale(1);
+  background-color: rgba(244, 101, 15, 0.12);
+  border-color: rgba(244, 101, 15, 0.95);
+}
+
+.cursor-ring[data-state='cta'] .cursor-ring__shape {
+  transform: scale(1.32);
+  background-color: rgba(244, 101, 15, 0.92);
+  border-color: transparent;
+}
+
+.cursor-ring[data-state='media'] .cursor-ring__shape,
+.cursor-ring[data-state='drag'] .cursor-ring__shape {
+  transform: scale(1.85);
+  background-color: rgba(244, 101, 15, 0.96);
+  border-color: transparent;
+}
+
+.cursor-ring[data-state='text'] .cursor-ring__shape,
+.cursor-ring[data-state='disabled'] .cursor-ring__shape {
+  transform: scale(0.28);
+  opacity: 0;
+}
+
+.cursor-ring[data-state='disabled'] .cursor-ring__shape {
+  opacity: 1;
+  transform: scale(0.75);
+  border-color: rgba(93, 112, 140, 0.55);
+  background: transparent;
+}
+
+/* Press is feedback, so it is fast and it wins over the state transition. */
+.cursor-ring[data-pressed] .cursor-ring__shape {
+  transform: scale(0.86);
+  transition-duration: 110ms;
+}
+
+.cursor-ring[data-pressed][data-state='cta'] .cursor-ring__shape {
+  transform: scale(1.14);
+}
+
+.cursor-ring[data-pressed][data-state='media'] .cursor-ring__shape,
+.cursor-ring[data-pressed][data-state='drag'] .cursor-ring__shape {
+  transform: scale(1.62);
+}
+
+/* --- Ring contents -------------------------------------------------------- */
+
+.cursor-ring__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-950);
+  opacity: 0;
+  transition:
+    opacity 200ms ease 60ms,
+    transform 260ms var(--ease-out-strong) 60ms;
+}
+
+.cursor-ring[data-state='media'] .cursor-ring__label,
+.cursor-ring[data-state='drag'] .cursor-ring__label {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.cursor-ring__chevron {
+  position: absolute;
+  top: 0;
+  width: 6px;
+  height: 6px;
+  border-top: 1.5px solid var(--color-ink-950);
+  border-left: 1.5px solid var(--color-ink-950);
+  opacity: 0;
+  transition:
+    opacity 200ms ease 60ms,
+    transform 300ms var(--ease-out-strong) 60ms;
+}
+
+.cursor-ring__chevron--left {
+  left: 0;
+  transform: translate(-172%, -50%) rotate(-45deg);
+}
+
+.cursor-ring__chevron--right {
+  left: 0;
+  transform: translate(112%, -50%) rotate(135deg);
+}
+
+.cursor-ring[data-state='drag'] .cursor-ring__chevron {
+  opacity: 0.9;
+}
+
+.cursor-ring[data-state='drag'] .cursor-ring__chevron--left {
+  transform: translate(-232%, -50%) rotate(-45deg);
+}
+
+.cursor-ring[data-state='drag'] .cursor-ring__chevron--right {
+  transform: translate(172%, -50%) rotate(135deg);
+}

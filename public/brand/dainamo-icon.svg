@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Dainamo Holdings">
+  <title>Dainamo Holdings</title>
+  <rect width="256" height="256" rx="24" fill="#FFFFFF"/>
+  <g transform="translate(8 62)" fill-rule="evenodd">
+    <path fill="#5B93F0" d="M53 19 105 71 53 123 1 71Z M53 34 90 71 53 108 16 71Z"/>
+    <path fill="#5B93F0" d="M187 19 239 71 187 123 135 71Z M187 34 224 71 187 108 150 71Z"/>
+    <path fill="#12439F" d="M62 24 114 76 62 128 10 76Z M62 39 99 76 62 113 25 76Z"/>
+    <path fill="#12439F" d="M178 24 230 76 178 128 126 76Z M178 39 215 76 178 113 141 76Z"/>
+    <path fill="#12439F" d="M120 2 182 66 120 130 58 66Z M120 20 164 66 120 112 76 66Z"/>
+  </g>
+  <g transform="translate(8 62)">
+    <path fill="#5B93F0" d="M97 79h13v45H97Z"/>
+    <path fill="#12439F" d="M97 79h3v45h-3Z"/>
+    <path fill="#5B93F0" d="M130 83h13v41h-13Z"/>
+    <path fill="#12439F" d="M140 83h3v41h-3Z"/>
+    <path fill="#5B93F0" d="M112 57h9v67h-9Z"/>
+    <path fill="#12439F" d="M121 57h8v67h-8Z"/>
+  </g>
+</svg>

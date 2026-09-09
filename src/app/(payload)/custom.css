@@ -1,0 +1,257 @@
+/* Dainamo Holdings content studio.
+
+   Payload's own theming variables and layout hooks do the work, so the admin
+   keeps all of its stock behaviour, keyboard support and accessibility. The
+   sign-in screen is the one surface that is fully brand-styled, because it is
+   the only page an owner sees before they are logged in. */
+
+:root {
+  --dainamo-blue: #1b5cd0;
+  --dainamo-blue-deep: #0c2a62;
+  --dainamo-blue-darkest: #08183c;
+  --dainamo-paper: #ffffff;
+  --dainamo-mist: rgba(255, 255, 255, 0.74);
+  --dainamo-accent: #f4650f;
+  --dainamo-accent-soft: #ff8a3d;
+  --dainamo-ink: #061021;
+  --dainamo-line: rgba(255, 255, 255, 0.14);
+}
+
+html[data-theme='dark'] {
+  --theme-elevation-0: #08183c;
+  --theme-elevation-50: #0c2a62;
+  --theme-elevation-100: #143a80;
+  --theme-bg: #08183c;
+}
+
+/* Brand accent on primary actions throughout the studio. */
+.btn--style-primary,
+.btn--style-primary:visited {
+  background-color: var(--dainamo-accent);
+  border-color: var(--dainamo-accent);
+  color: var(--dainamo-ink);
+}
+
+.btn--style-primary:hover:not(:disabled),
+.btn--style-primary:focus-visible:not(:disabled) {
+  background-color: var(--dainamo-accent-soft);
+  border-color: var(--dainamo-accent-soft);
+  color: var(--dainamo-ink);
+}
+
+.dainamo-admin-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--theme-elevation-800);
+}
+
+/* ==========================================================================
+   Sign in
+   ========================================================================== */
+
+.login.template-minimal {
+  background:
+    radial-gradient(110% 80% at 50% -6%, rgba(244, 101, 15, 0.18), transparent 60%),
+    linear-gradient(180deg, #0c2a62 0%, #08183c 100%);
+  min-height: 100dvh;
+}
+
+.login .template-minimal__wrap {
+  max-width: 27rem;
+  padding: 2.75rem 2.25rem;
+  background-color: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--dainamo-line);
+  border-radius: 6px;
+  box-shadow: 0 40px 90px -45px rgba(0, 0, 0, 0.8);
+}
+
+.login .login__brand {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+
+.dainamo-admin-logo {
+  display: block;
+  width: 100%;
+  max-width: 264px;
+}
+
+.dainamo-admin-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dainamo-admin-intro__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dainamo-accent);
+}
+
+.dainamo-admin-intro__body {
+  margin: 0 auto;
+  max-width: 36ch;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--dainamo-mist);
+}
+
+/* Every control on this screen sits on the deep blue card, so it is restyled
+   for that surface rather than inheriting the light theme. */
+.login .field-label {
+  color: var(--dainamo-paper);
+  font-weight: 600;
+}
+
+.login .field-label .required {
+  color: var(--dainamo-accent);
+}
+
+.login input[type='text'],
+.login input[type='email'],
+.login input[type='password'] {
+  background-color: rgba(4, 12, 30, 0.5);
+  border: 1px solid var(--dainamo-line);
+  border-radius: 2px;
+  color: var(--dainamo-paper);
+  min-height: 46px;
+}
+
+.login input::placeholder {
+  color: #8093ad;
+}
+
+.login input:focus {
+  border-color: var(--dainamo-accent);
+  outline: 2px solid rgba(244, 101, 15, 0.35);
+  outline-offset: 1px;
+}
+
+.login .show-hide-password,
+.login .show-hide-password__button {
+  color: var(--dainamo-mist);
+}
+
+.login a {
+  color: var(--dainamo-accent-soft);
+  text-underline-offset: 3px;
+}
+
+.login a:hover {
+  color: var(--dainamo-accent);
+}
+
+.login .form-submit {
+  margin-top: 1.5rem;
+}
+
+.login .form-submit .btn {
+  width: 100%;
+  background-color: var(--dainamo-accent);
+  border-color: var(--dainamo-accent);
+  color: var(--dainamo-ink);
+  border-radius: 2px;
+  transition:
+    transform 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    background-color 200ms ease;
+}
+
+.login .form-submit .btn:hover:not(:disabled) {
+  background-color: var(--dainamo-accent-soft);
+  border-color: var(--dainamo-accent-soft);
+}
+
+.login .form-submit .btn:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+.login .form-submit .btn .btn__label {
+  color: var(--dainamo-ink);
+  font-weight: 700;
+}
+
+.login .field-error,
+.login .form-error {
+  color: #ffb4ae;
+}
+
+/* ==========================================================================
+   Lockup
+   The mark is shared with the website, so the studio needs the same small set
+   of rules. Everything scales from one width variable.
+   ========================================================================== */
+
+.lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--lockup-w) * 0.055);
+  line-height: 1;
+}
+
+.lockup__type {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: calc(var(--lockup-w) * 0.022);
+  min-width: 0;
+}
+
+.lockup__word {
+  font-weight: 800;
+  font-size: calc(var(--lockup-w) * 0.155);
+  letter-spacing: 0.012em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--dainamo-paper);
+  white-space: nowrap;
+}
+
+.lockup[data-tone='light'] .lockup__word {
+  color: #12439f;
+}
+
+.lockup__rule {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--lockup-w) * 0.03);
+}
+
+.lockup__rule::before,
+.lockup__rule::after {
+  content: '';
+  flex: 1 1 auto;
+  height: 1px;
+  background: #5b93f0;
+  opacity: 0.85;
+}
+
+.lockup__holdings {
+  font-weight: 600;
+  font-size: calc(var(--lockup-w) * 0.072);
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  text-transform: uppercase;
+  color: #5b93f0;
+  white-space: nowrap;
+}
+
+.lockup__strapline {
+  margin-top: calc(var(--lockup-w) * 0.02);
+  font-size: calc(var(--lockup-w) * 0.042);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+}
+
+.lockup .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

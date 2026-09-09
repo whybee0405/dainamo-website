@@ -1,0 +1,109 @@
+{
+  "hero-facade": {
+    "widths": [
+      960,
+      1600
+    ],
+    "aspect": 1.3694,
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JQBOgBFc+Gyg883O1LgAA/ss6Di7ljPM1wtTqL2xGVfZmyJ7yXzW6jrWcuZV2XANQKgAA"
+  },
+  "epoxy-hospital-corridor": {
+    "widths": [
+      720,
+      1200,
+      1800
+    ],
+    "aspect": 1.4906,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAwCdASoUAA0APu1kqk2ppaQiMAgBMB2JZQDCgBKhOknumofbAAD9ZFP/rxWTPumN9NBRiG9NyNSYFRlGWhdTOqHs6wAA"
+  },
+  "waterproofing-torch-on": {
+    "widths": [
+      720,
+      1200,
+      1800
+    ],
+    "aspect": 1.4906,
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAwCdASoUAA0APu1kqk2ppaQiMAgBMB2JZQCsACHUlavnRQh96gAA/pG75ZIpcUHp36mMvI9ypBPYAnmRzwl99cvFZnmY8fPggKhJTa4wLBYA"
+  },
+  "coatings-warehouse-floor": {
+    "widths": [
+      720,
+      1200,
+      1800
+    ],
+    "aspect": 1.4906,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAwCdASoUAA0APu1iqU2ppaQiMAgBMB2JQBfnBDmj+qN5/REV/aAA/ulK7Df6loPftLdInQ/21qcipqbAMb/woxG5lcAA"
+  },
+  "damp-proofing-injection": {
+    "widths": [
+      720,
+      1200
+    ],
+    "aspect": 1.4906,
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAwCdASoUAA0APu1oqk6ppiQiMAgBMB2JZgCdH8ACM8GrI1T6GDOAAP7mWdzcET5lUWeuxJ4Gz0SLySq3j0d2bKmGiesL+doyFhVL4isfaqkY8gAAAA=="
+  },
+  "maintenance-rooftop-plant": {
+    "widths": [
+      720,
+      1200
+    ],
+    "aspect": 1.4906,
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQBACdASoUAA0APu1mqk4ppaOiMAgBMB2JZQCdACFqsmLeOZd/MoRkIAD80xQfKEFnDSS4zoWKI3m3gN4JVjKRN9wrSWBiEL0AAA=="
+  },
+  "sector-shopping-centre": {
+    "widths": [
+      640,
+      1100
+    ],
+    "aspect": 1.3393,
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAwCdASoUAA8APu1iqk2ppaQiMAgBMB2JQBWAA7s+k9Xc+OiUeAAA/nc9ejYvVDzVfBSxMVafpOoj2xdY2gG+DXZRRpSY3918bNk91Vafue/8VYAAAA=="
+  },
+  "sector-healthcare": {
+    "widths": [
+      640,
+      1100
+    ],
+    "aspect": 1.3393,
+    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACQAwCdASoUAA8APu1iqk2ppaQiMAgBMB2JZwCw7Bc61GMMlqmAAPiGDfVIzPqFWaujk/Db0kAHNHuzZK9QfNKtAAA="
+  },
+  "sector-industrial": {
+    "widths": [
+      640,
+      1100
+    ],
+    "aspect": 1.3393,
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAwCdASoUAA8APu1kq04ppaQiMAgBMB2JZQC/OBBchUxE2SqPxAD+zYExkZyCY6kkyArzJVQlxbcQgmuTDZv+4zNC208NzOZS45gA"
+  },
+  "sector-residential": {
+    "widths": [
+      640,
+      1100
+    ],
+    "aspect": 1.3393,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQBACdASoUAA8APu1kqk4ppaQiMAgBMB2JQBOj+ABi/xjO9yXsb+WrkAD7mnMHdIJLG7BitHzieQcvFDYxacDI67VubNk5QwRDNkUyjmqo4alQAAA="
+  },
+  "sector-commercial": {
+    "widths": [
+      640,
+      1100
+    ],
+    "aspect": 1.3393,
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwBACdASoUAA8APu1iqk2ppaQiMAgBMB2JQBOgA8S/zjwcnFICsZQwxoAA/usaLhsixN5BI2C7kz0C9NIH0aZCJot+ca8UihJxrbhzBYyzH4ZfvOYoDQjm/YtRKzYNHAA="
+  },
+  "case-before": {
+    "widths": [
+      900,
+      1600
+    ],
+    "aspect": 1.9151,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACQAwCdASoUAAoAPu1qrU8ppiQiMAgBMB2JZwABEZ/jxdhx7m8AAPyyQdlVPNYW7F18GlhsQxZOTNZ8CrPt79WWIGxwAAAA"
+  },
+  "case-after": {
+    "widths": [
+      900,
+      1600
+    ],
+    "aspect": 1.9098,
+    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAwCdASoUAAoAPu1kqU2ppaQiMAgBMB2JZwAAidoUrAAA/uPMzZWQnUArbX5kGEMLJC3qyVxWBu2f8RfwT/ZAAAA="
+  }
+}

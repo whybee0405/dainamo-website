@@ -1,0 +1,490 @@
+/* ==========================================================================
+   Header, footer and page furniture
+   ========================================================================== */
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 200;
+  transform: translate(-50%, -140%);
+  padding: 0.75rem 1.25rem;
+  background: var(--color-accent-500);
+  color: var(--color-ink-950);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  transition: transform 200ms var(--ease-out-strong);
+}
+
+.skip-link:focus-visible {
+  transform: translate(-50%, 0);
+}
+
+#scroll-sentinel {
+  position: absolute;
+  top: 0;
+  height: 1px;
+  width: 1px;
+}
+
+/* --- Header --------------------------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: transparent;
+  transition:
+    background-color 320ms ease,
+    border-color 320ms ease,
+    backdrop-filter 320ms ease;
+  border-bottom: 1px solid transparent;
+}
+
+.site-header[data-lifted] {
+  background-color: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(14px) saturate(170%);
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  border-bottom-color: var(--color-line);
+}
+
+.site-header__inner {
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.site-header__nav {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+.site-header__link {
+  position: relative;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-slate-600);
+  border-radius: var(--radius-sm);
+  transition: color 200ms ease;
+  white-space: nowrap;
+}
+
+.site-header__link::after {
+  content: '';
+  position: absolute;
+  left: 0.875rem;
+  right: 0.875rem;
+  bottom: 0.125rem;
+  height: 1px;
+  background: var(--color-accent-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms var(--ease-out-strong);
+}
+
+.site-header__link[data-active] {
+  color: var(--color-ink-900);
+}
+
+.site-header__link[data-active]::after {
+  transform: scaleX(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .site-header__link:hover {
+    color: var(--color-ink-900);
+  }
+  .site-header__link:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 0 0 auto;
+}
+
+.site-header__phone {
+  display: none;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 40px;
+  padding-inline: 0.375rem;
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-slate-600);
+  transition: color 200ms ease;
+  white-space: nowrap;
+}
+
+.site-header__phone svg {
+  color: var(--color-accent-500);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .site-header__phone:hover {
+    color: var(--color-ink-900);
+  }
+}
+
+.site-header__cta {
+  display: none;
+  min-height: 42px;
+  padding: 0.625rem 1.125rem;
+  font-size: 0.875rem;
+}
+
+.site-header__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -0.5rem;
+  color: var(--color-ink-900);
+  background: transparent;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition:
+    transform 160ms var(--ease-out-strong),
+    border-color 200ms ease;
+}
+
+.site-header__toggle:active {
+  transform: scale(0.94);
+}
+
+@media (min-width: 900px) {
+  .site-header__nav,
+  .site-header__phone,
+  .site-header__cta {
+    display: flex;
+  }
+  .site-header__toggle {
+    display: none;
+  }
+}
+
+/* --- Mobile menu ---------------------------------------------------------- */
+
+.mobile-menu {
+  position: fixed;
+  inset: var(--nav-height) 0 0;
+  z-index: 79;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem var(--gutter) calc(2rem + env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, #ffffff 0%, var(--color-tint) 100%);
+  overflow-y: auto;
+}
+
+.mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-top: 1rem;
+}
+
+.mobile-menu__link {
+  display: block;
+  padding: 0.875rem 0;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-ink-900);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.mobile-menu__foot {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 2rem;
+}
+
+.mobile-menu__foot .btn {
+  width: 100%;
+}
+
+.mobile-menu__phone {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: var(--color-blue-600);
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* --- Footer ---------------------------------------------------------------
+   The conversion band and the footer form one deep blue block that closes
+   every page. It is the only place the site leaves the white ground, and it
+   happens once, at the end, so nothing flips mid-scroll.
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  position: relative;
+  padding-top: clamp(3.5rem, 7vw, 6rem);
+  background: linear-gradient(180deg, var(--color-blue-950) 0%, #050f2a 100%);
+  color: rgba(255, 255, 255, 0.74);
+  --footer-line: rgba(255, 255, 255, 0.12);
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+@media (min-width: 900px) {
+  .site-footer__inner {
+    grid-template-columns: minmax(280px, 1fr) 1.35fr;
+    align-items: start;
+  }
+}
+
+.site-footer__blurb {
+  margin: 1.5rem 0;
+  max-width: 42ch;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.site-footer__cols {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .site-footer__cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1120px) {
+  .site-footer__cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.site-footer__heading {
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.site-footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+/* Padded rather than tightly spaced, so every link clears the 24px minimum
+   target size at desktop and 44px under a coarse pointer. */
+.site-footer__col a,
+.site-footer__address {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  min-height: 32px;
+  padding-block: 0.3125rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.78);
+  transition: color 200ms ease;
+}
+
+.site-footer__col svg {
+  flex: 0 0 auto;
+  margin-top: 0.3rem;
+  color: var(--color-accent-400);
+}
+
+@media (pointer: coarse) {
+  .site-footer__col a {
+    min-height: 44px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .site-footer__col a:hover {
+    color: #ffffff;
+  }
+}
+
+.site-footer__phone-label {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.55);
+  align-self: center;
+}
+
+.site-footer__phone-label::before {
+  content: '(';
+}
+
+.site-footer__phone-label::after {
+  content: ')';
+}
+
+.site-footer__areas {
+  padding-block: 2rem;
+  border-top: 1px solid var(--footer-line);
+}
+
+.site-footer__areas p {
+  max-width: 90ch;
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.site-footer__base {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  padding-block: 1.5rem calc(1.5rem + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--footer-line);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.site-footer__legal a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: rgba(255, 255, 255, 0.58);
+  transition: color 200ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .site-footer__legal a:hover {
+    color: #ffffff;
+  }
+}
+
+/* --- WhatsApp -------------------------------------------------------------
+   The one place the palette gives way to a third party. WhatsApp green is the
+   affordance here; recognising the button in a quarter of a second is worth
+   more than palette purity on a utility control.
+   -------------------------------------------------------------------------- */
+
+.wa {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: calc(clamp(1rem, 3vw, 2rem) + env(safe-area-inset-bottom));
+  z-index: 70;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  height: 56px;
+  padding-inline: 1rem;
+  border-radius: 28px;
+  background-color: #1faa54;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 14px 32px -12px rgba(6, 16, 33, 0.55);
+  transition:
+    transform 160ms var(--ease-out-strong),
+    background-color 200ms ease;
+}
+
+.wa:active {
+  transform: scale(0.96);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .wa:hover {
+    background-color: #1c9a4c;
+  }
+  /* A nudge that is being looked at has done its job. */
+  .wa:hover .wa__pulse,
+  .wa:focus-visible .wa__pulse {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+.wa__label {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .wa__label {
+    display: inline;
+  }
+}
+
+@media (max-width: 639px) {
+  .wa {
+    width: 56px;
+    padding-inline: 0;
+    justify-content: center;
+  }
+}
+
+/* One expansion near the start of a six second cycle, then quiet. */
+.wa__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid #1faa54;
+  opacity: 0;
+  pointer-events: none;
+  animation: wa-pulse 6s var(--ease-out-strong) infinite;
+}
+
+@keyframes wa-pulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  22% {
+    opacity: 0;
+    transform: scale(1.42);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.42);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa__pulse {
+    animation: none;
+  }
+}
