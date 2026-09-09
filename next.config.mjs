@@ -4,6 +4,7 @@ import { withPayload } from '@payloadcms/next/withPayload'
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  output: 'standalone',
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [390, 640, 828, 1080, 1280, 1600, 1920, 2560],

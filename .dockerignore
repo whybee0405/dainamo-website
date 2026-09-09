@@ -1,0 +1,17 @@
+.git
+.next
+node_modules
+test-results
+playwright-report
+scratch
+references/Client Pictures
+references/*.jpeg
+references/*.jpg
+.env
+.env.*
+!.env.example
+*.db
+*.db-journal
+Dockerfile*
+docker-compose*.yml
+README.md

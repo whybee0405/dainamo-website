@@ -1,0 +1,21 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3111}
+    ports:
+      - "3111:3111"
+    environment:
+      NODE_ENV: production
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET:-dainamo-local-container-secret-change-me}
+      DATABASE_URI: file:/app/data/dainamo.db
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3111}
+    volumes:
+      - dainamo-data:/app/data
+      - dainamo-uploads:/app/public/uploads
+    restart: unless-stopped
+
+volumes:
+  dainamo-data:
+  dainamo-uploads:
