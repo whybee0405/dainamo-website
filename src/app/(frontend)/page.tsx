@@ -10,6 +10,7 @@ import { CaseStudy } from '../../components/sections/CaseStudy'
 import { Questions } from '../../components/sections/Questions'
 import { ConversionBand } from '../../components/sections/ConversionBand'
 import { homeQuestions } from '../../content/questions'
+import { getCmsCapabilities, getCmsQuestions, getCmsSectors } from '../../lib/cms'
 import { faqSchema, jsonLd } from '../../lib/schema'
 
 export const metadata: Metadata = {
@@ -19,18 +20,27 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
 }
 
-export default function HomePage() {
+export const dynamic = 'force-dynamic'
+
+export default async function HomePage() {
+  const [capabilities, sectors, questions] = await Promise.all([
+    getCmsCapabilities(),
+    getCmsSectors(),
+    getCmsQuestions(),
+  ])
+  const pageQuestions = questions.filter((question) => question.onHome)
+
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqSchema(homeQuestions))} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqSchema(pageQuestions.length ? pageQuestions : homeQuestions))} />
       <Hero />
       <ClientStrip />
       <Position />
-      <CapabilityStack />
-      <SectorGrid />
+      <CapabilityStack capabilities={capabilities} />
+      <SectorGrid sectors={sectors} />
       <Method />
       <CaseStudy showComparison={false} />
-      <Questions items={homeQuestions} />
+      <Questions items={pageQuestions.length ? pageQuestions : homeQuestions} />
       <ConversionBand />
     </>
   )

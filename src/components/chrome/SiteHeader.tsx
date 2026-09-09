@@ -7,9 +7,12 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { List, X, Phone } from '@phosphor-icons/react/dist/ssr'
 
 import { DainamoLockup } from '../brand/DainamoLockup'
-import { company, nav, PRIMARY_CTA } from '../../lib/site'
+import { nav, PRIMARY_CTA } from '../../lib/site'
+import type { getCmsCompany } from '../../lib/cms'
 
-export function SiteHeader() {
+type HeaderCompany = Awaited<ReturnType<typeof getCmsCompany>>
+
+export function SiteHeader({ company }: { company: HeaderCompany }) {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [lifted, setLifted] = useState(false)

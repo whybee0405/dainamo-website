@@ -3,7 +3,8 @@ import type { Metadata } from 'next'
 import { PageHead } from '../../../components/sections/PageHead'
 import { Questions } from '../../../components/sections/Questions'
 import { ConversionBand } from '../../../components/sections/ConversionBand'
-import { questions } from '../../../content/questions'
+import { questions as fallbackQuestions } from '../../../content/questions'
+import { getCmsQuestions } from '../../../lib/cms'
 import { breadcrumbSchema, faqSchema, jsonLd } from '../../../lib/schema'
 
 const ANSWER =
@@ -29,7 +30,10 @@ const GROUPS = [
   { topic: 'contracts', title: 'Maintenance contracts' },
 ] as const
 
-export default function QuestionsPage() {
+export const dynamic = 'force-dynamic'
+
+export default async function QuestionsPage() {
+  const questions = await getCmsQuestions()
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumbSchema(crumbs))} />

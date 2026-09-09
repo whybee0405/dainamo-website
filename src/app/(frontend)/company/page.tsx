@@ -4,7 +4,7 @@ import { Reveal } from '../../../components/motion/Reveal'
 import { PageHead } from '../../../components/sections/PageHead'
 import { Frame } from '../../../components/media/Frame'
 import { ConversionBand } from '../../../components/sections/ConversionBand'
-import { company, serviceAreas } from '../../../lib/site'
+import { getCmsCompany } from '../../../lib/cms'
 import { breadcrumbSchema, jsonLd } from '../../../lib/schema'
 
 const ANSWER =
@@ -31,7 +31,12 @@ const values = [
   { name: 'Customer satisfaction', detail: 'Handover happens when the client signs it off, not when we leave.' },
 ]
 
-export default function CompanyPage() {
+export const dynamic = 'force-dynamic'
+
+export default async function CompanyPage() {
+  const company = await getCmsCompany()
+  const serviceAreas = company.serviceAreas
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumbSchema(crumbs))} />

@@ -2,7 +2,10 @@ import Link from 'next/link'
 import { MapPin, EnvelopeSimple, Phone } from '@phosphor-icons/react/dist/ssr'
 
 import { DainamoLockup } from '../brand/DainamoLockup'
-import { company, nav, serviceAreas, PRIMARY_CTA } from '../../lib/site'
+import { nav, serviceAreas as fallbackServiceAreas, PRIMARY_CTA } from '../../lib/site'
+import type { getCmsCompany } from '../../lib/cms'
+
+type FooterCompany = Awaited<ReturnType<typeof getCmsCompany>>
 
 const capabilityLinks = [
   { label: 'Epoxy and resin flooring', href: '/capabilities/epoxy-and-resin-flooring' },
@@ -11,7 +14,8 @@ const capabilityLinks = [
   { label: 'Maintenance contracts', href: '/capabilities/maintenance-contracts' },
 ]
 
-export function SiteFooter() {
+export function SiteFooter({ company }: { company: FooterCompany }) {
+  const serviceAreas = company.serviceAreas || fallbackServiceAreas
   return (
     <footer className="site-footer on-deep">
       <div className="shell site-footer__inner">

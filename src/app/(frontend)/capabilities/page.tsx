@@ -6,7 +6,8 @@ import { Reveal } from '../../../components/motion/Reveal'
 import { PageHead } from '../../../components/sections/PageHead'
 import { Frame } from '../../../components/media/Frame'
 import { ConversionBand } from '../../../components/sections/ConversionBand'
-import { capabilities, supportingTrades } from '../../../content/capabilities'
+import { capabilities as fallbackCapabilities, supportingTrades } from '../../../content/capabilities'
+import { getCmsCapabilities } from '../../../lib/cms'
 import { breadcrumbSchema, jsonLd } from '../../../lib/schema'
 
 const ANSWER =
@@ -23,7 +24,10 @@ const crumbs = [
   { name: 'Capabilities', href: '/capabilities' },
 ]
 
-export default function CapabilitiesPage() {
+export const dynamic = 'force-dynamic'
+
+export default async function CapabilitiesPage() {
+  const capabilities = await getCmsCapabilities()
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumbSchema(crumbs))} />

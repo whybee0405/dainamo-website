@@ -5,11 +5,11 @@ import { motion, useReducedMotion } from 'motion/react'
 import { ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
 
 import { Frame } from '../media/Frame'
-import { sectors } from '../../content/sectors'
+import { sectors as fallbackSectors, type Sector } from '../../content/sectors'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
-export function SectorGrid() {
+export function SectorGrid({ sectors = fallbackSectors }: { sectors?: Sector[] }) {
   const calm = useReducedMotion()
 
   return (

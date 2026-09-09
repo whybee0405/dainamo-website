@@ -8,20 +8,21 @@ import { PageHead } from '../../../../components/sections/PageHead'
 import { Frame } from '../../../../components/media/Frame'
 import { Questions } from '../../../../components/sections/Questions'
 import { ConversionBand } from '../../../../components/sections/ConversionBand'
-import { capabilities } from '../../../../content/capabilities'
-import { sectors } from '../../../../content/sectors'
-import { questions } from '../../../../content/questions'
+import { getCmsCapabilities, getCmsQuestions, getCmsSectors } from '../../../../lib/cms'
 import { breadcrumbSchema, faqSchema, jsonLd, serviceSchema } from '../../../../lib/schema'
 
 type Params = { params: Promise<{ slug: string }> }
 
-export function generateStaticParams() {
+export const dynamic = 'force-dynamic'
+
+export async function generateStaticParams() {
+  const capabilities = await getCmsCapabilities()
   return capabilities.map((capability) => ({ slug: capability.slug }))
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
-  const capability = capabilities.find((item) => item.slug === slug)
+  const capability = (await getCmsCapabilities()).find((item) => item.slug === slug)
   if (!capability) return {}
   return {
     title: `${capability.name} in Johannesburg`,
@@ -36,6 +37,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function CapabilityPage({ params }: Params) {
   const { slug } = await params
+  const [capabilities, sectors, questions] = await Promise.all([
+    getCmsCapabilities(),
+    getCmsSectors(),
+    getCmsQuestions(),
+  ])
   const capability = capabilities.find((item) => item.slug === slug)
   if (!capability) notFound()
 

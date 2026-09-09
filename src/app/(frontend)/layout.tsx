@@ -9,6 +9,7 @@ import './pages.css'
 
 import { fontVariables } from '../../lib/fonts'
 import { company, SITE_URL } from '../../lib/site'
+import { getCmsCompany } from '../../lib/cms'
 import { organisationGraph } from '../../lib/schema'
 import { Cursor } from '../../components/chrome/Cursor'
 import { SmoothScroll } from '../../components/chrome/SmoothScroll'
@@ -75,7 +76,11 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 }
 
-export default function FrontendLayout({ children }: { children: React.ReactNode }) {
+export const dynamic = 'force-dynamic'
+
+export default async function FrontendLayout({ children }: { children: React.ReactNode }) {
+  const cmsCompany = await getCmsCompany()
+
   return (
     <html lang="en-ZA" className={fontVariables}>
       <body>
@@ -96,9 +101,9 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
         <SmoothScroll />
         <Cursor />
         <div id="scroll-sentinel" aria-hidden="true" />
-        <SiteHeader />
+        <SiteHeader company={cmsCompany} />
         <main id="main">{children}</main>
-        <SiteFooter />
+        <SiteFooter company={cmsCompany} />
         <WhatsAppButton />
       </body>
     </html>

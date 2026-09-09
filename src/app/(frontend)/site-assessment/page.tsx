@@ -3,7 +3,7 @@ import { Phone, WhatsappLogo, EnvelopeSimple, Clock, MapPin } from '@phosphor-ic
 
 import { PageHead } from '../../../components/sections/PageHead'
 import { AssessmentForm } from '../../../components/forms/AssessmentForm'
-import { company } from '../../../lib/site'
+import { getCmsCompany } from '../../../lib/cms'
 import { breadcrumbSchema, jsonLd } from '../../../lib/schema'
 
 const ANSWER =
@@ -28,7 +28,10 @@ const steps = [
   'You get an itemised quotation with measured areas and stated exclusions.',
 ]
 
-export default function SiteAssessmentPage() {
+export const dynamic = 'force-dynamic'
+
+export default async function SiteAssessmentPage() {
+  const company = await getCmsCompany()
   const whatsapp = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(
     "Hi Dainamo, I'd like to arrange a site assessment.",
   )}`

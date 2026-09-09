@@ -24,9 +24,11 @@ npm run dev               # http://localhost:3111
 docker compose up --build
 ```
 
-The production container is available at **http://localhost:3111**. SQLite data and uploaded
-Payload media are kept in named Docker volumes. Set `PAYLOAD_SECRET` in `.env` before using the
-container outside local development; the Compose default is only for local testing.
+The production container is available at **http://localhost:3111**. Compose seeds the Payload
+database once before starting the web service; repeated starts leave existing records intact.
+SQLite data and uploaded Payload media are kept in named Docker volumes. Set `PAYLOAD_SECRET` in
+`.env` before using the container outside local development; the Compose default is only for local
+testing.
 
 | Command | What it does |
 | --- | --- |

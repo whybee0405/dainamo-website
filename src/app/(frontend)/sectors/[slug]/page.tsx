@@ -8,20 +8,21 @@ import { PageHead } from '../../../../components/sections/PageHead'
 import { Frame } from '../../../../components/media/Frame'
 import { ConversionBand } from '../../../../components/sections/ConversionBand'
 import { Questions } from '../../../../components/sections/Questions'
-import { sectors } from '../../../../content/sectors'
-import { capabilities } from '../../../../content/capabilities'
-import { questions } from '../../../../content/questions'
+import { getCmsCapabilities, getCmsQuestions, getCmsSectors } from '../../../../lib/cms'
 import { breadcrumbSchema, faqSchema, jsonLd } from '../../../../lib/schema'
 
 type Params = { params: Promise<{ slug: string }> }
 
-export function generateStaticParams() {
+export const dynamic = 'force-dynamic'
+
+export async function generateStaticParams() {
+  const sectors = await getCmsSectors()
   return sectors.map((sector) => ({ slug: sector.slug }))
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
-  const sector = sectors.find((item) => item.slug === slug)
+  const sector = (await getCmsSectors()).find((item) => item.slug === slug)
   if (!sector) return {}
   return {
     title: `${sector.name} in Johannesburg`,
@@ -32,6 +33,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function SectorPage({ params }: Params) {
   const { slug } = await params
+  const [sectors, capabilities, questions] = await Promise.all([
+    getCmsSectors(),
+    getCmsCapabilities(),
+    getCmsQuestions(),
+  ])
   const sector = sectors.find((item) => item.slug === slug)
   if (!sector) notFound()
 

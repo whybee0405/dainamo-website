@@ -1,4 +1,16 @@
 services:
+  seed:
+    build:
+      context: .
+      target: builder
+    environment:
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET:-dainamo-local-container-secret-change-me}
+      DATABASE_URI: file:/app/data/dainamo.db
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3111}
+    volumes:
+      - dainamo-data:/app/data
+    command: npm run seed
+
   web:
     build:
       context: .
@@ -6,6 +18,9 @@ services:
         NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3111}
     ports:
       - "3111:3111"
+    depends_on:
+      seed:
+        condition: service_completed_successfully
     environment:
       NODE_ENV: production
       PAYLOAD_SECRET: ${PAYLOAD_SECRET:-dainamo-local-container-secret-change-me}

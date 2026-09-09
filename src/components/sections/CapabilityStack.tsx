@@ -9,7 +9,7 @@ import { ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
 
 import { Frame } from '../media/Frame'
 import { ClientPhoto } from '../media/ClientPhoto'
-import { flagshipCapabilities } from '../../content/capabilities'
+import { flagshipCapabilities, type Capability } from '../../content/capabilities'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -33,7 +33,7 @@ const clientPhotos = {
  * enough to be read on its own, and the outgoing card recedes rather than
  * vanishing, so the reader keeps a sense of where they are in the sequence.
  */
-export function CapabilityStack() {
+export function CapabilityStack({ capabilities = flagshipCapabilities }: { capabilities?: Capability[] }) {
   const root = useRef<HTMLDivElement>(null)
   const calm = useReducedMotion()
 
@@ -87,7 +87,7 @@ export function CapabilityStack() {
       </div>
 
       <div ref={root} className="capabilities__stack">
-        {flagshipCapabilities.map((capability, index) => (
+        {capabilities.filter((capability) => capability.flagship).slice(0, 4).map((capability, index) => (
           <article key={capability.slug} className="capability-card">
             <span className="capability-card__veil" aria-hidden="true" />
             <div className="capability-card__inner shell">

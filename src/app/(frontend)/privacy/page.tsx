@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 import { PageHead } from '../../../components/sections/PageHead'
-import { company } from '../../../lib/site'
+import { getCmsCompany } from '../../../lib/cms'
 import { breadcrumbSchema, jsonLd } from '../../../lib/schema'
 
 export const metadata: Metadata = {
@@ -17,7 +17,10 @@ const crumbs = [
   { name: 'Privacy and data', href: '/privacy' },
 ]
 
-export default function PrivacyPage() {
+export const dynamic = 'force-dynamic'
+
+export default async function PrivacyPage() {
+  const company = await getCmsCompany()
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumbSchema(crumbs))} />
