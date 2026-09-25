@@ -310,37 +310,91 @@
 
 .wa {
   position: fixed;
-  right: max(1rem, env(safe-area-inset-right));
-  bottom: max(1rem, env(safe-area-inset-bottom));
-  z-index: 40;
+  right: max(1.25rem, env(safe-area-inset-right));
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 80;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  min-height: 52px;
-  padding: 0 1.1rem 0 0.9rem;
-  border-radius: 999px;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border-radius: 50%;
   background: #128c4a;
   color: var(--color-white);
-  font-size: 0.925rem;
-  font-weight: 600;
   box-shadow: 0 16px 34px -14px rgba(8, 60, 32, 0.7);
-  transition: background-color 180ms var(--ease-out-strong);
+  transition:
+    background-color 180ms var(--ease-out-strong),
+    box-shadow 180ms var(--ease-out-strong);
 }
-.wa:hover {
-  background: #0e7a40;
+
+.wa::before,
+.wa__pulse {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: #128c4a;
+  pointer-events: none;
+  animation: wa-pulse 5.6s cubic-bezier(0.23, 1, 0.32, 1) infinite;
 }
-.wa__label {
-  display: none;
+
+.wa::before {
+  content: '';
 }
-@media (min-width: 720px) {
-  .wa__label {
-    display: inline;
+
+.wa__pulse {
+  animation-delay: 360ms;
+}
+
+.wa > svg {
+  position: relative;
+  z-index: 1;
+}
+
+.wa:focus-visible {
+  outline: 3px solid rgba(18, 140, 74, 0.32);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .wa:hover {
+    background: #0e7a40;
+    box-shadow: 0 18px 38px -14px rgba(8, 60, 32, 0.82);
   }
 }
+
+@keyframes wa-pulse {
+  0%,
+  12% {
+    opacity: 0.48;
+    transform: scale(1);
+  }
+  32% {
+    opacity: 0;
+    transform: scale(1.52);
+  }
+  33%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
 @media (max-width: 719px) {
   .wa {
-    width: 54px;
-    padding: 0;
-    justify-content: center;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa::before,
+  .wa__pulse {
+    animation: none;
+    opacity: 0;
   }
 }
