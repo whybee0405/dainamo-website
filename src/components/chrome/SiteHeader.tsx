@@ -44,7 +44,7 @@ export function SiteHeader({ company }: { company: HeaderCompany }) {
       <header className="site-header" data-lifted={lifted || undefined}>
         <div className="site-header__inner shell">
           <Link href="/" className="site-header__brand" aria-label="Dainamo Holdings, home">
-            <DainamoLockup width={188} tone="light" />
+            <DainamoLockup width={176} tone="light" />
           </Link>
 
           <nav className="site-header__nav" aria-label="Primary">
@@ -68,12 +68,11 @@ export function SiteHeader({ company }: { company: HeaderCompany }) {
             <a
               className="site-header__phone"
               href={`tel:${company.phones[0].tel}`}
-              data-cursor="link"
             >
               <Phone size={16} weight="fill" aria-hidden="true" />
               <span>{company.phones[0].number}</span>
             </a>
-            <Link href={PRIMARY_CTA.href} className="btn btn-primary site-header__cta" data-cursor="cta">
+            <Link href={PRIMARY_CTA.href} className="btn btn-primary site-header__cta">
               {PRIMARY_CTA.label}
             </Link>
             <button
@@ -108,7 +107,11 @@ export function SiteHeader({ company }: { company: HeaderCompany }) {
                   animate={{ opacity: 1, transform: 'translate3d(0, 0px, 0)' }}
                   transition={{ duration: 0.32, delay: 0.04 * index, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <Link href={item.href} className="mobile-menu__link">
+                  <Link
+                    href={item.href}
+                    className="mobile-menu__link"
+                    data-active={pathname === item.href || pathname.startsWith(`${item.href}/`) || undefined}
+                  >
                     {item.label}
                   </Link>
                 </motion.div>

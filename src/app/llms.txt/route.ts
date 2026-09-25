@@ -33,11 +33,10 @@ export function GET() {
 
 ## Positioning
 
-Dainamo Holdings started as a general handyman company. It deliberately moved out of that market,
-which is highly competitive in Johannesburg, and now focuses on specialised projects for businesses,
-shopping centres, hospitals, warehouses and townhouse complexes. The core of the business is
-maintenance contracts and specialist finishes: epoxy flooring, damp proofing, waterproofing and
-newer protective coating systems. It is not a general handyman service.
+Dainamo Holdings started as a general handyman company and still carries out general repairs. It
+has grown into specialised projects for businesses, shopping centres, hospitals, warehouses and
+townhouse complexes. Most of the work is now maintenance contracts and specialist finishes: epoxy
+flooring, damp proofing, waterproofing and newer protective coating systems.
 
 ## Services
 

@@ -33,12 +33,11 @@ export function Questions({
     >
       <div className="shell questions__inner">
         <div className="questions__head">
-          {showEyebrow && <p className="eyebrow">Straight answers</p>}
           <h2 id={headingId} className={compact ? 'display-3' : 'display-2'}>
             {heading}
           </h2>
           {showAll && (
-            <Link href="/questions" className="questions__all" data-cursor="link">
+            <Link href="/questions" className="questions__all">
               Read every question
             </Link>
           )}

@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowUpRight, Check } from '@phosphor-icons/react/dist/ssr'
+import { ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
 
-import { Reveal } from '../../../../components/motion/Reveal'
 import { PageHead } from '../../../../components/sections/PageHead'
-import { Frame } from '../../../../components/media/Frame'
+import { describePhoto } from '../../../../components/media/Frame'
+import { PhotoStrip } from '../../../../components/sections/PhotoStrip'
+import { capabilityCover, capabilityPhotos } from '../../../../content/photos'
 import { Questions } from '../../../../components/sections/Questions'
 import { ConversionBand } from '../../../../components/sections/ConversionBand'
 import { getCmsCapabilities, getCmsQuestions, getCmsSectors } from '../../../../lib/cms'
@@ -80,17 +81,9 @@ export default async function CapabilityPage({ params }: Params) {
         title={capability.name}
         answer={capability.answer}
         crumbs={crumbs}
-      >
-        <Reveal variant="wipe" className="page-head__media" amount={0.15}>
-          <Frame
-            media={capability.media}
-            alt={`${capability.name} carried out by Dainamo Holdings in Johannesburg`}
-            sizes="(min-width: 1100px) 76vw, 100vw"
-            ratio={2.3}
-            priority
-          />
-        </Reveal>
-      </PageHead>
+        media={capabilityCover[capability.slug] ?? capability.media}
+        mediaAlt={describePhoto(capabilityCover[capability.slug] ?? capability.media, capability.name)}
+      />
 
       <section className="detail section" aria-labelledby="systems-heading">
         <div className="shell detail__grid">
@@ -119,21 +112,22 @@ export default async function CapabilityPage({ params }: Params) {
               What a typical scope includes
             </h2>
             <p className="detail__note">
-              Every line below appears on the quotation with a quantity and a rate, so there is
-              nothing to argue about once the work has started.
+              Every line below appears on the quotation with a quantity and a rate.
             </p>
           </div>
 
           <ul className="detail__scope">
             {capability.scope.map((item) => (
               <li key={item}>
-                <Check size={15} weight="bold" aria-hidden="true" />
+                <span className="detail__marker" aria-hidden="true" />
                 <span>{item}</span>
               </li>
             ))}
           </ul>
         </div>
       </section>
+
+      <PhotoStrip photos={capabilityPhotos[capability.slug] ?? []} heading={`${capability.name} on our sites`} />
 
       {relatedSectors.length > 0 && (
         <section className="related section" aria-labelledby="related-heading">

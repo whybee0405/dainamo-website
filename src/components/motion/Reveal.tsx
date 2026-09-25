@@ -15,13 +15,13 @@ const VARIANTS: Record<
   rise: {
     from: { opacity: 0, transform: 'translate3d(0, 20px, 0)' },
     to: { opacity: 1, transform: 'translate3d(0, 0px, 0)' },
-    duration: 0.62,
+    duration: 0.5,
   },
   /** Large panels that should barely move. */
   settle: {
     from: { opacity: 0, transform: 'translate3d(0, 10px, 0) scale(0.995)' },
     to: { opacity: 1, transform: 'translate3d(0, 0px, 0) scale(1)' },
-    duration: 0.7,
+    duration: 0.55,
   },
 }
 

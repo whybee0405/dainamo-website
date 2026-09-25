@@ -14,7 +14,7 @@ const initial: EnquiryState = { status: 'idle' }
 function Submit() {
   const { pending } = useFormStatus()
   return (
-    <button type="submit" className="btn btn-primary form__submit" disabled={pending} data-cursor="cta">
+    <button type="submit" className="btn btn-primary form__submit" disabled={pending}>
       {pending ? (
         <>
           <CircleNotch size={17} weight="bold" className="spin" aria-hidden="true" />
@@ -77,13 +77,13 @@ export function AssessmentForm({ source = 'site-assessment' }: { source?: string
         <span className="form__done-icon" aria-hidden="true">
           <CheckCircle size={26} weight="fill" />
         </span>
-        <h2 className="display-3">That is with us.</h2>
+        <h2 className="display-3">Thanks, we have your request.</h2>
         <p>
           Your enquiry reference is <strong>{state.reference}</strong>. Someone will call you to
           arrange the site visit, normally within one working day.
         </p>
         <p className="form__done-note">
-          If it is urgent, call 063 432 9337 and quote the reference rather than waiting for us.
+          If it is urgent, call 063 432 9337 and quote the reference.
         </p>
       </motion.div>
     )

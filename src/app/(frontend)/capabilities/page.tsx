@@ -4,11 +4,12 @@ import { ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
 
 import { Reveal } from '../../../components/motion/Reveal'
 import { PageHead } from '../../../components/sections/PageHead'
-import { Frame } from '../../../components/media/Frame'
+import { Frame, describePhoto } from '../../../components/media/Frame'
 import { ConversionBand } from '../../../components/sections/ConversionBand'
 import { capabilities as fallbackCapabilities, supportingTrades } from '../../../content/capabilities'
 import { getCmsCapabilities } from '../../../lib/cms'
 import { breadcrumbSchema, jsonLd } from '../../../lib/schema'
+import { capabilityCover } from '../../../content/photos'
 
 const ANSWER =
   'Dainamo Holdings provides epoxy and resin flooring, waterproofing, damp proofing, protective and industrial coatings, thermoplastic line marking and planned building maintenance across Johannesburg and Gauteng, together with the plumbing, electrical, solar, HVAC and interior trades needed to complete a contract.'
@@ -36,6 +37,8 @@ export default async function CapabilitiesPage() {
         title="What we are specified for."
         answer={ANSWER}
         crumbs={crumbs}
+        media="epoxy-corridor"
+        mediaAlt="A finished light grey gloss epoxy floor in a commercial unit laid by Dainamo Holdings"
       />
 
       <section className="capability-index section" aria-label="Specialist systems">
@@ -49,19 +52,21 @@ export default async function CapabilitiesPage() {
                 amount={0.2}
                 className="capability-index__item"
               >
-                <Link href={`/capabilities/${capability.slug}`} data-cursor="media">
+                <Link href={`/capabilities/${capability.slug}`} className="capability-index__link">
                   <Frame
-                    media={capability.media}
-                    alt={`${capability.name} by Dainamo Holdings`}
-                    sizes="(min-width: 900px) 32vw, 100vw"
-                    ratio={1.5}
+                    media={capabilityCover[capability.slug] ?? capability.media}
+                    alt={describePhoto(capabilityCover[capability.slug] ?? capability.media, capability.name)}
+                    sizes="(min-width: 1080px) 31vw, (min-width: 640px) 47vw, 100vw"
+                    ratio={1.4}
                   />
-                  <h2>{capability.name}</h2>
-                  <p>{capability.lede}</p>
-                  <span className="capability-index__cue">
-                    <span>What is included</span>
-                    <ArrowUpRight size={15} weight="bold" aria-hidden="true" />
-                  </span>
+                  <div className="capability-index__body">
+                    <h2>{capability.name}</h2>
+                    <p>{capability.lede}</p>
+                    <span className="capability-index__cue">
+                      What is included
+                      <ArrowUpRight size={15} weight="bold" aria-hidden="true" />
+                    </span>
+                  </div>
                 </Link>
               </Reveal>
             ))}
@@ -69,16 +74,19 @@ export default async function CapabilitiesPage() {
         </div>
       </section>
 
-      <section className="trades section" aria-labelledby="trades-heading">
+      <section id="trades" className="trades section section--mist" aria-labelledby="trades-heading">
         <div className="shell">
-          <h2 id="trades-heading" className="display-2 trades__headline">
-            The trades that finish the job.
-          </h2>
-          <p className="lede trades__lede">
-            Specialist systems rarely arrive on a site alone. A roof repair uncovers a gutter, a
-            floor needs a drain moved, a refurbishment needs a ceiling closed up. These sit inside
-            the same contract rather than becoming somebody else's problem.
-          </p>
+          <div className="section-head section-head--split">
+            <div>
+              <h2 id="trades-heading" className="display-2">
+                The trades that finish the job.
+              </h2>
+            </div>
+            <p className="lede">
+            Specialist work often turns up other jobs. A roof repair uncovers a damaged gutter, or a
+            new floor needs a drain moved. We handle those on the same contract.
+            </p>
+          </div>
 
           <div className="trades__grid">
             {supportingTrades.map((trade) => (

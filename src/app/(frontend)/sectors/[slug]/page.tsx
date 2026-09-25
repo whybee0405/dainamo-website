@@ -1,11 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowUpRight, Warning } from '@phosphor-icons/react/dist/ssr'
+import { ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
 
-import { Reveal } from '../../../../components/motion/Reveal'
 import { PageHead } from '../../../../components/sections/PageHead'
-import { Frame } from '../../../../components/media/Frame'
 import { ConversionBand } from '../../../../components/sections/ConversionBand'
 import { Questions } from '../../../../components/sections/Questions'
 import { getCmsCapabilities, getCmsQuestions, getCmsSectors } from '../../../../lib/cms'
@@ -55,17 +53,7 @@ export default async function SectorPage({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumbSchema(crumbs))} />
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqSchema(pageQuestions))} />
 
-      <PageHead title={sector.name} answer={sector.answer} crumbs={crumbs}>
-        <Reveal variant="wipe" className="page-head__media" amount={0.15}>
-          <Frame
-            media={sector.media}
-            alt={`${sector.name} maintained by Dainamo Holdings`}
-            sizes="(min-width: 1100px) 76vw, 100vw"
-            ratio={2.3}
-            priority
-          />
-        </Reveal>
-      </PageHead>
+      <PageHead title={sector.name} answer={sector.answer} crumbs={crumbs} media={sector.media} mediaAlt={`Illustrative scene: ${sector.name.toLowerCase()}`} />
 
       <section className="pressures section" aria-labelledby="pressures-heading">
         <div className="shell pressures__grid">
@@ -79,9 +67,6 @@ export default async function SectorPage({ params }: Params) {
           <ul className="pressures__list">
             {sector.pressures.map((pressure) => (
               <li key={pressure.title}>
-                <span className="pressures__icon" aria-hidden="true">
-                  <Warning size={16} weight="fill" />
-                </span>
                 <div>
                   <h3>{pressure.title}</h3>
                   <p>{pressure.detail}</p>

@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 
 import './globals.css'
-import './cursor.css'
 import './chrome.css'
 import './sections.css'
 import './pages.css'
@@ -11,7 +10,6 @@ import { fontVariables } from '../../lib/fonts'
 import { company, SITE_URL } from '../../lib/site'
 import { getCmsCompany } from '../../lib/cms'
 import { organisationGraph } from '../../lib/schema'
-import { Cursor } from '../../components/chrome/Cursor'
 import { SmoothScroll } from '../../components/chrome/SmoothScroll'
 import { SiteHeader } from '../../components/chrome/SiteHeader'
 import { SiteFooter } from '../../components/chrome/SiteFooter'
@@ -63,7 +61,7 @@ export const metadata: Metadata = {
   },
   formatDetection: { telephone: true, address: true, email: true },
   icons: {
-    icon: [{ url: '/brand/dainamo-icon.svg', type: 'image/svg+xml' }],
+    icon: [{ url: '/favicon.png', type: 'image/png', sizes: '64x64' }],
     apple: [{ url: '/brand/apple-touch-icon.png', sizes: '180x180' }],
   },
 }
@@ -99,7 +97,6 @@ export default async function FrontendLayout({ children }: { children: React.Rea
           Skip to content
         </a>
         <SmoothScroll />
-        <Cursor />
         <div id="scroll-sentinel" aria-hidden="true" />
         <SiteHeader company={cmsCompany} />
         <main id="main">{children}</main>

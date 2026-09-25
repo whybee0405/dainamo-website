@@ -3,6 +3,8 @@
  * an empty shell. Safe to run more than once: existing records are left alone.
  *
  *   npm run seed
+ *   npm run seed -- --sync   also rewrites the copy on existing records from
+ *                            src/content, overwriting edits made in the studio
  */
 import 'dotenv/config'
 import { getPayload } from 'payload'
@@ -14,6 +16,7 @@ import { questions } from '../content/questions'
 
 const OWNER_EMAIL = process.env.SEED_EMAIL || 'dainamoholdings@gmail.com'
 const OWNER_PASSWORD = process.env.SEED_PASSWORD || 'ChangeMe-2026!'
+const SYNC = process.argv.includes('--sync') || process.env.SEED_SYNC === '1'
 
 async function seed() {
   const payload = await getPayload({ config })
@@ -46,6 +49,21 @@ async function seed() {
     })
     if (found.docs.length > 0) {
       sectorIds.set(sector.slug, Number(found.docs[0].id))
+      if (SYNC) {
+        await payload.update({
+          collection: 'sectors',
+          id: found.docs[0].id,
+          data: {
+            title: sector.name,
+            summary: sector.lede,
+            pressures: sector.pressures.map((pressure) => ({
+              title: pressure.title,
+              detail: pressure.detail,
+            })),
+            seo: { answer: sector.answer },
+          },
+        })
+      }
       continue
     }
     const created = await payload.create({
@@ -74,7 +92,26 @@ async function seed() {
       where: { slug: { equals: capability.slug } },
       limit: 1,
     })
-    if (found.docs.length > 0) continue
+    if (found.docs.length > 0) {
+      if (SYNC) {
+        await payload.update({
+          collection: 'services',
+          id: found.docs[0].id,
+          data: {
+            title: capability.name,
+            shortName: capability.shortName,
+            summary: capability.lede,
+            systems: capability.systems.map((system) => ({
+              name: system.name,
+              detail: system.detail,
+            })),
+            scopeIncludes: capability.scope.map((item) => ({ item })),
+            seo: { answer: capability.answer },
+          },
+        })
+      }
+      continue
+    }
 
     await payload.create({
       collection: 'services',
@@ -104,12 +141,23 @@ async function seed() {
 
   let faqCount = 0
   for (const [index, item] of questions.entries()) {
+    // Under --sync, match on position so a reworded question updates in place
+    // instead of arriving as a duplicate.
     const found = await payload.find({
       collection: 'faqs',
-      where: { question: { equals: item.question } },
+      where: SYNC ? { order: { equals: (index + 1) * 10 } } : { question: { equals: item.question } },
       limit: 1,
     })
-    if (found.docs.length > 0) continue
+    if (found.docs.length > 0) {
+      if (SYNC) {
+        await payload.update({
+          collection: 'faqs',
+          id: found.docs[0].id,
+          data: { question: item.question, answer: item.answer, topic: item.topic },
+        })
+      }
+      continue
+    }
     await payload.create({
       collection: 'faqs',
       data: {

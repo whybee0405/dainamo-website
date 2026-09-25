@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 
 import { Hero } from '../../components/sections/Hero'
 import { ClientStrip } from '../../components/sections/ClientStrip'
-import { Position } from '../../components/sections/Position'
-import { CapabilityStack } from '../../components/sections/CapabilityStack'
+import { Services } from '../../components/sections/Services'
+import { SiteReel } from '../../components/sections/SiteReel'
+import { BeforeAfter } from '../../components/sections/BeforeAfter'
 import { SectorGrid } from '../../components/sections/SectorGrid'
 import { Method } from '../../components/sections/Method'
 import { CaseStudy } from '../../components/sections/CaseStudy'
@@ -29,18 +30,20 @@ export default async function HomePage() {
     getCmsQuestions(),
   ])
   const pageQuestions = questions.filter((question) => question.onHome)
+  const faq = pageQuestions.length ? pageQuestions : homeQuestions
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqSchema(pageQuestions.length ? pageQuestions : homeQuestions))} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqSchema(faq))} />
       <Hero />
       <ClientStrip />
-      <Position />
-      <CapabilityStack capabilities={capabilities} />
+      <Services capabilities={capabilities} />
+      <SiteReel />
+      <BeforeAfter />
       <SectorGrid sectors={sectors} />
       <Method />
-      <CaseStudy showComparison={false} />
-      <Questions items={pageQuestions.length ? pageQuestions : homeQuestions} />
+      <CaseStudy />
+      <Questions items={faq} />
       <ConversionBand />
     </>
   )

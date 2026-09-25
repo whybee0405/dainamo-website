@@ -23,7 +23,7 @@ const crumbs = [
 
 const steps = [
   'You send the details below, or you call.',
-  'We phone back to agree a time that suits the building, not us.',
+  'We phone back to agree a time that suits the building.',
   'A contractor walks the site, takes readings and photographs the failures.',
   'You get an itemised quotation with measured areas and stated exclusions.',
 ]
@@ -40,7 +40,7 @@ export default async function SiteAssessmentPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumbSchema(crumbs))} />
 
-      <PageHead title="Request a site assessment." answer={ANSWER} crumbs={crumbs} />
+      <PageHead eyebrow="Free, no obligation" title="Request a site assessment." answer={ANSWER} crumbs={crumbs} />
 
       <section className="assess section">
         <div className="shell assess__grid">
@@ -63,20 +63,20 @@ export default async function SiteAssessmentPage() {
               <ul className="assess__contacts">
                 {company.phones.map((phone) => (
                   <li key={phone.tel}>
-                    <a href={`tel:${phone.tel}`} data-cursor="link">
+                    <a href={`tel:${phone.tel}`}>
                       <Phone size={16} weight="fill" aria-hidden="true" />
                       <span>{phone.number}</span>
                     </a>
                   </li>
                 ))}
                 <li>
-                  <a href={whatsapp} rel="noopener" data-cursor="link">
+                  <a href={whatsapp} rel="noopener">
                     <WhatsappLogo size={17} weight="fill" aria-hidden="true" />
                     <span>WhatsApp</span>
                   </a>
                 </li>
                 <li>
-                  <a href={`mailto:${company.email}`} data-cursor="link">
+                  <a href={`mailto:${company.email}`}>
                     <EnvelopeSimple size={16} weight="fill" aria-hidden="true" />
                     <span>{company.email}</span>
                   </a>

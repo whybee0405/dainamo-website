@@ -1,32 +1,32 @@
 import Link from 'next/link'
+import { ArrowRight } from '@phosphor-icons/react/dist/ssr'
 
 import { nav, PRIMARY_CTA } from '../../lib/site'
 
 export default function NotFound() {
   return (
-    <section className="section">
-      <div className="shell-tight" style={{ paddingBlock: '4rem' }}>
-        <p className="eyebrow" style={{ marginBottom: '1rem' }}>
-          404
-        </p>
-        <h1 className="display-2" style={{ maxWidth: '18ch', marginBottom: '1.25rem' }}>
-          That page is not here.
-        </h1>
-        <p className="lede" style={{ marginBottom: '2rem' }}>
+    <section className="missing section">
+      <div className="shell-tight">
+        <p className="eyebrow">Page not found</p>
+        <h1 className="display-1 missing__title">That page is not here.</h1>
+        <p className="lede">
           The link may be old, or the page may have moved. Everything the site covers is one of
           these:
         </p>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '2.5rem' }}>
+        <ul className="missing__links">
           {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="btn btn-secondary" data-cursor="link">
-              {item.label}
-            </Link>
+            <li key={item.href}>
+              <Link href={item.href} className="btn btn-secondary">
+                {item.label}
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        <Link href={PRIMARY_CTA.href} className="btn btn-primary" data-cursor="cta">
+        <Link href={PRIMARY_CTA.href} className="btn btn-primary">
           {PRIMARY_CTA.label}
+          <ArrowRight size={17} weight="bold" aria-hidden="true" />
         </Link>
       </div>
     </section>

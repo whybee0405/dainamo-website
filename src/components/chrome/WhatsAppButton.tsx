@@ -44,7 +44,6 @@ export function WhatsAppButton() {
           className="wa"
           target="_blank"
           rel="noopener noreferrer"
-          data-cursor="cta"
           aria-label="Message Dainamo Holdings on WhatsApp"
           initial={calm ? { opacity: 0 } : { opacity: 0, transform: 'translate3d(0, 16px, 0) scale(0.9)' }}
           animate={calm ? { opacity: 1 } : { opacity: 1, transform: 'translate3d(0, 0px, 0) scale(1)' }}

@@ -15,11 +15,12 @@ function payloadClient() {
 
 function mediaKey(slug: string | null | undefined, fallback: Capability['media']): Capability['media'] {
   const keys: Record<string, Capability['media']> = {
-    'epoxy-and-resin-flooring': 'coatings-warehouse-floor',
-    waterproofing: 'waterproofing-torch-on',
-    'damp-proofing': 'damp-proofing-injection',
-    'maintenance-contracts': 'maintenance-rooftop-plant',
-    'protective-and-industrial-coatings': 'hero-facade',
+    'epoxy-and-resin-flooring': 'epoxy-pour-wide',
+    waterproofing: 'roof-membrane',
+    'damp-proofing': 'wall-injection',
+    'maintenance-contracts': 'roof-ridge-blue',
+    'protective-and-industrial-coatings': 'scene-spray',
+    'thermoplastic-line-marking': 'thermo-footprints',
   }
   return (slug && keys[slug]) || fallback
 }
@@ -41,7 +42,7 @@ export async function getCmsCapabilities(): Promise<Capability[]> {
         name: service.title,
         shortName: service.shortName || fallback?.shortName || service.title,
         flagship: Boolean(service.flagship),
-        media: mediaKey(service.slug, fallback?.media || 'hero-facade'),
+        media: mediaKey(service.slug, fallback?.media || 'epoxy-corridor'),
         answer: service.seo?.answer || fallback?.answer || service.summary,
         lede: service.summary,
         systems: (service.systems || []).map((system) => ({ name: system.name, detail: system.detail || '' })),
@@ -78,9 +79,13 @@ export async function getCmsSectors(): Promise<Sector[]> {
           title: pressure.title,
           detail: pressure.detail || '',
         })),
-        capabilities: (sector.services || [])
-          .map((service) => typeof service === 'number' ? '' : service.slug || '')
-          .filter(Boolean),
+        capabilities: (() => {
+          const linked = (sector.services || [])
+            .map((service) => (typeof service === 'number' ? '' : service.slug || ''))
+            .filter(Boolean)
+          // An unlinked sector in the studio should not render an empty section.
+          return linked.length ? linked : fallback?.capabilities || []
+        })(),
       }
     })
   } catch {

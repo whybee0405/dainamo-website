@@ -1,56 +1,60 @@
-'use client'
-
 import Link from 'next/link'
-import { motion, useReducedMotion } from 'motion/react'
 import { ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
 
 import { Frame } from '../media/Frame'
+import { Reveal } from '../motion/Reveal'
 import { sectors as fallbackSectors, type Sector } from '../../content/sectors'
 
-const EASE = [0.16, 1, 0.3, 1] as const
-
-export function SectorGrid({ sectors = fallbackSectors }: { sectors?: Sector[] }) {
-  const calm = useReducedMotion()
-
+export function SectorGrid({
+  sectors = fallbackSectors,
+  heading = 'Planned around how each building runs.',
+  intro = 'A hospital, a warehouse and a townhouse complex each limit access, working hours, dust, odour and cure times differently. We write the programme around those limits.',
+  showHead = true,
+}: {
+  sectors?: Sector[]
+  heading?: string
+  intro?: string
+  showHead?: boolean
+}) {
   return (
     <section className="sectors section" aria-labelledby="sectors-heading">
       <div className="shell">
-        <div className="sectors__head">
-          <h2 id="sectors-heading" className="display-2">
-            The building decides how the work gets done.
+        {showHead ? (
+          <div className="section-head section-head--split">
+            <div>
+              <h2 id="sectors-heading" className="display-2">
+                {heading}
+              </h2>
+            </div>
+            <p className="lede">{intro}</p>
+          </div>
+        ) : (
+          <h2 id="sectors-heading" className="sr-only">
+            Sectors
           </h2>
-        </div>
+        )}
 
         <div className="sectors__grid">
           {sectors.map((sector, index) => (
-            <motion.article
-              key={sector.slug}
-              className="sector-tile"
-              data-span={sector.span}
-              initial={calm ? false : { opacity: 0, transform: 'translate3d(0, 22px, 0)' }}
-              whileInView={{ opacity: 1, transform: 'translate3d(0, 0px, 0)' }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.6, delay: Math.min(index, 3) * 0.05, ease: EASE }}
-            >
-              <Link href={`/sectors/${sector.slug}`} className="sector-tile__link" data-cursor="media">
+            <Reveal key={sector.slug} className="sector-card" amount={0.2} delay={Math.min(index % 3, 2) * 0.06}>
+              <Link href={`/sectors/${sector.slug}`} className="sector-card__link">
                 <Frame
                   media={sector.media}
-                  alt={`${sector.name} work carried out by Dainamo Holdings`}
-                  sizes="(min-width: 1100px) 40vw, (min-width: 700px) 50vw, 100vw"
-                  ratio={sector.span === 'tall' ? 0.86 : sector.span === 'wide' ? 1.7 : 1.28}
-                  className="sector-tile__frame"
+                  alt={`Illustrative scene: ${sector.name.toLowerCase()}`}
+                  sizes="(min-width: 1080px) 34vw, (min-width: 700px) 50vw, 100vw"
+                  ratio={1.45}
+                  className="sector-card__media"
                 />
-                <div className="sector-tile__scrim" aria-hidden="true" />
-                <div className="sector-tile__content">
-                  <h3 className="sector-tile__name">{sector.name}</h3>
-                  <p className="sector-tile__lede">{sector.lede}</p>
-                  <span className="sector-tile__cue">
-                    <span>Constraints and method</span>
+                <div className="sector-card__body">
+                  <h3 className="sector-card__name">{sector.name}</h3>
+                  <p className="sector-card__lede">{sector.lede}</p>
+                  <span className="sector-card__cue">
+                    Constraints and method
                     <ArrowUpRight size={15} weight="bold" aria-hidden="true" />
                   </span>
                 </div>
               </Link>
-            </motion.article>
+            </Reveal>
           ))}
         </div>
       </div>

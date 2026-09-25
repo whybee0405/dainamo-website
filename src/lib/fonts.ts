@@ -1,31 +1,18 @@
-import { Archivo, Manrope } from 'next/font/google'
+import { Geist } from 'next/font/google'
 
 /**
- * Two families, no monospace.
+ * One family, variable weight.
  *
- * Archivo is a grotesque drawn for signage and industrial print, which is the
- * right physical object for a contractor: a site notice, a stencilled crate, a
- * specification sheet. It carries the display type and, at small sizes with
- * tabular figures, every number and label on the site.
- *
- * A mono face was here previously and has been removed on purpose. This is not
- * a developer tool; monospace on a building contractor reads as costume, and it
- * cost a third font file for the privilege.
+ * Geist is a neutral, tightly drawn grotesque. It carries display type at 600
+ * with negative tracking, reading text at 400, and every figure with tabular
+ * numerals, so the whole site reads as one engineered document rather than a
+ * pairing that has to be kept in balance.
  */
-export const archivo = Archivo({
+export const geist = Geist({
   subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
-  variable: '--font-archivo',
+  variable: '--font-geist',
   display: 'swap',
   preload: true,
 })
 
-export const manrope = Manrope({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-manrope',
-  display: 'swap',
-  preload: true,
-})
-
-export const fontVariables = [archivo.variable, manrope.variable].join(' ')
+export const fontVariables = geist.variable

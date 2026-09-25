@@ -3,6 +3,9 @@ services:
     build:
       context: .
       target: builder
+    # Same uid as the web service, so the SQLite file it creates stays writable
+    # by the site. Running as root here left the database read-only for enquiries.
+    user: "1001:1001"
     environment:
       PAYLOAD_SECRET: ${PAYLOAD_SECRET:-dainamo-local-container-secret-change-me}
       DATABASE_URI: file:/app/data/dainamo.db

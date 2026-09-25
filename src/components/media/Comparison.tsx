@@ -2,34 +2,38 @@
 
 import { useCallback, useEffect, useRef } from 'react'
 
-import { Frame, type MediaKey } from './Frame'
+import { Frame, type PhotoKey } from './Frame'
 
 export type ComparisonProps = {
-  before: MediaKey
-  after: MediaKey
+  before: PhotoKey
+  after: PhotoKey
   beforeAlt: string
   afterAlt: string
   label: string
   sizes: string
   /** Where the seam rests, as a percentage from the left. */
   start?: number
-  ratio?: number
-  /** Stretch both layers to the parent box instead of using the image ratio. */
-  fill?: boolean
-  /** Sweeps the seam open once on mount, which teaches the drag without a tooltip. */
-  sweepOnLoad?: boolean
-  priority?: boolean
+  /** Crops for each layer, so two photographs taken from slightly different
+      positions line up on the same subject. */
+  beforePosition?: string
+  afterPosition?: string
+  /** Scale a layer about its crop point when one shot was taken from further back. */
+  beforeZoom?: number
+  afterZoom?: number
   className?: string
 }
 
-const EXPO_OUT = 'cubic-bezier(0.16, 1, 0.3, 1)'
+function layerStyle(position: string, zoom: number) {
+  return { ['--zoom' as string]: zoom, ['--origin' as string]: position }
+}
 
 /**
  * Before and after, on one slider.
  *
  * The gesture never touches React state. The clip on the top layer and the
  * transform on the seam are written straight onto their elements, so dragging
- * stays off the render path entirely.
+ * stays off the render path. A native range input underneath carries keyboard
+ * and screen reader control for free.
  */
 export function Comparison({
   before,
@@ -38,11 +42,11 @@ export function Comparison({
   afterAlt,
   label,
   sizes,
-  start = 52,
-  ratio,
-  fill = false,
-  sweepOnLoad = false,
-  priority = false,
+  start = 50,
+  beforePosition = '50% 50%',
+  afterPosition = '50% 50%',
+  beforeZoom = 1,
+  afterZoom = 1,
   className,
 }: ComparisonProps) {
   const rootRef = useRef<HTMLDivElement>(null)
@@ -53,78 +57,25 @@ export function Comparison({
   const apply = useCallback((value: number) => {
     const width = rootRef.current?.clientWidth ?? 0
     if (afterRef.current) afterRef.current.style.clipPath = `inset(0 0 0 ${value}%)`
-    // Transform rather than `left`, so the seam never asks for a layout pass.
-    if (seamRef.current) {
-      seamRef.current.style.transform = `translate3d(${(value / 100) * width}px, 0, 0)`
-    }
+    if (seamRef.current) seamRef.current.style.transform = `translate3d(${(value / 100) * width}px, 0, 0)`
   }, [])
 
   useEffect(() => {
+    if (inputRef.current) inputRef.current.value = String(start)
     apply(start)
-
     const onResize = () => apply(Number(inputRef.current?.value ?? start))
     window.addEventListener('resize', onResize)
-
-    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (!sweepOnLoad || calm) return () => window.removeEventListener('resize', onResize)
-
-    // One sweep, once, to show the slider moves. The Web Animations API keeps
-    // this off the main thread and lets the gesture interrupt it cleanly.
-    const width = rootRef.current?.clientWidth ?? 0
-    const from = 92
-    const opts = { duration: 1250, delay: 600, easing: EXPO_OUT, fill: 'both' as const }
-
-    apply(from)
-    if (inputRef.current) inputRef.current.value = String(from)
-
-    const clip = afterRef.current?.animate(
-      [{ clipPath: `inset(0 0 0 ${from}%)` }, { clipPath: `inset(0 0 0 ${start}%)` }],
-      opts,
-    )
-    const slide = seamRef.current?.animate(
-      [
-        { transform: `translate3d(${(from / 100) * width}px, 0, 0)` },
-        { transform: `translate3d(${(start / 100) * width}px, 0, 0)` },
-      ],
-      opts,
-    )
-
-    const settle = () => {
-      clip?.cancel()
-      slide?.cancel()
-      apply(start)
-      if (inputRef.current) inputRef.current.value = String(start)
-    }
-    if (clip) clip.onfinish = settle
-
-    // Any real input cancels the demo immediately rather than fighting it.
-    const stop = () => {
-      clip?.cancel()
-      slide?.cancel()
-    }
-    const node = rootRef.current
-    node?.addEventListener('pointerdown', stop, { once: true })
-
-    return () => {
-      window.removeEventListener('resize', onResize)
-      node?.removeEventListener('pointerdown', stop)
-      clip?.cancel()
-      slide?.cancel()
-    }
-  }, [apply, start, sweepOnLoad])
+    return () => window.removeEventListener('resize', onResize)
+  }, [apply, start, before, after])
 
   return (
-    <div
-      ref={rootRef}
-      className={['compare', fill ? 'compare--fill' : null, className].filter(Boolean).join(' ')}
-      data-cursor="drag"
-    >
-      <div className="compare__layer">
-        <Frame media={before} alt={beforeAlt} sizes={sizes} ratio={ratio} priority={priority} />
+    <div ref={rootRef} className={['compare', className].filter(Boolean).join(' ')}>
+      <div className="compare__layer" style={layerStyle(beforePosition, beforeZoom)}>
+        <Frame media={before} alt={beforeAlt} sizes={sizes} ratio={0} position={beforePosition} />
       </div>
 
-      <div className="compare__layer compare__layer--after" ref={afterRef}>
-        <Frame media={after} alt={afterAlt} sizes={sizes} ratio={ratio} priority={priority} />
+      <div className="compare__layer compare__layer--after" ref={afterRef} style={layerStyle(afterPosition, afterZoom)}>
+        <Frame media={after} alt={afterAlt} sizes={sizes} ratio={0} position={afterPosition} />
       </div>
 
       <span className="compare__seam" ref={seamRef} aria-hidden="true">

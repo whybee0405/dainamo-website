@@ -23,7 +23,7 @@ export default buildConfig({
     importMap: { baseDir: path.resolve(dirname) },
     meta: {
       titleSuffix: ' · Dainamo Holdings',
-      icons: [{ rel: 'icon', type: 'image/svg+xml', url: '/brand/dainamo-mark.svg' }],
+      icons: [{ rel: 'icon', type: 'image/png', url: '/favicon.png' }],
       openGraph: {
         title: 'Dainamo Holdings Content Studio',
         description: 'Manage services, sectors, projects and enquiries for Dainamo Holdings.',

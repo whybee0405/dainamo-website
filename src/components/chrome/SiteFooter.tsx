@@ -20,13 +20,12 @@ export function SiteFooter({ company }: { company: FooterCompany }) {
     <footer className="site-footer on-deep">
       <div className="shell site-footer__inner">
         <div className="site-footer__brand">
-          <DainamoLockup width={220} tone="dark" strapline />
+          <DainamoLockup width={210} tone="dark" />
           <p className="site-footer__blurb">
-            A Johannesburg contractor for the work that has to be specified rather than patched:
-            resin floors, waterproofing, damp remediation and planned maintenance for buildings that
-            stay in use.
+            A Johannesburg contractor for resin floors, waterproofing, damp treatment and planned
+            maintenance in buildings that stay in use.
           </p>
-          <Link href={PRIMARY_CTA.href} className="btn btn-primary" data-cursor="cta">
+          <Link href={PRIMARY_CTA.href} className="btn btn-primary">
             {PRIMARY_CTA.label}
           </Link>
         </div>

@@ -26,7 +26,7 @@ docker compose up --build
 
 The production container is available at **http://localhost:3111**. Compose seeds the Payload
 database once before starting the web service; repeated starts leave existing records intact.
-SQLite data and uploaded Payload media are kept in named Docker volumes. Set `PAYLOAD_SECRET` in
+SQLite data and uploaded Payload media are kept in named Docker volumes. The seed service runs as the same user as the web service (uid 1001), so the database stays writable for enquiries. To push copy changes from `src/content` into the container's database, run `docker compose run --rm seed npm run seed -- --sync`. Set `PAYLOAD_SECRET` in
 `.env` before using the container outside local development; the Compose default is only for local
 testing.
 
@@ -36,11 +36,11 @@ testing.
 | `npm run build` | Production build (type checks the whole project) |
 | `npm run start` | Serves the production build |
 | `npm run seed` | Creates the first user and seeds services, sectors, questions and company details |
+| `npm run seed -- --sync` | Rewrites the copy on existing services, sectors and questions from `src/content` (overwrites studio edits) |
 | `npm run generate:types` | Regenerates `src/payload-types.ts` after changing a collection |
-| `node src/scripts/build-media.mjs` | Re-downloads, trims and re-encodes the site photography |
+| `node src/scripts/build-photos.mjs [key ...]` | Encodes the photo library (AVIF + WebP + blur placeholder) into `public/media/photos` |
 | `node tests/shots.mjs` | Screenshots every route at 390 / 768 / 1440 and reports overflow and console errors |
 | `node tests/form.mjs` | Exercises the enquiry form end to end |
-| `node tests/cursor.mjs` | Checks pointer states and the reduced-motion and touch fallbacks |
 | `node tests/audit.mjs` | Heading order, alt text, rendered contrast, target sizes, accessible names, and content that is present but invisible |
 
 The content studio is at **`/admin`**. Seeded credentials are
@@ -60,11 +60,11 @@ src/
     robots.ts sitemap.ts
   components/
     brand/               emblem and lockup, rebuilt as vector artwork
-    chrome/              header, footer, cursor, smooth scroll
+    chrome/              header, footer, smooth scroll, WhatsApp button
     sections/            home page sections
     forms/               site assessment form
     media/Frame.tsx      responsive AVIF/WebP picture with a blurred placeholder
-  content/               copy for capabilities, sectors and questions
+  content/               copy for capabilities, sectors, questions, and photo captions (photos.ts)
   payload/               collections, globals, admin overrides
   lib/                   site facts, fonts, structured data
 ```
@@ -79,62 +79,59 @@ CMS one at a time without touching the layout. Start with `services` and `faqs`.
 
 ## Design system
 
-One light theme, one accent, one radius scale. Tokens are in `src/app/(frontend)/globals.css`.
+One light theme, one action colour, one signal colour. Tokens are in `src/app/(frontend)/globals.css`.
 
-- **Royal blue** `#1b5cd0`, taken from the company profile wordmark, on a white ground with a
-  `#f4f7fc` tint for alternating sections.
-- **Orange** `#f4650f` is the single accent. It marks actions and figures and nothing else. It is
-  deliberately clear of red and green, which are already spoken for by error and success states.
-- **A surface ladder, not a white page.** Nothing is pure white. `--color-paper` is a tinted
-  off-white, `--color-raised` sits above it for cards, `--color-tint` and `--color-band` are the
-  sunken bands. Sections alternate down the ladder so the page has rhythm.
-- **One theme flip, once, at the end.** The conversion band and footer form a single deep blue
-  block (`#0c2a62` to `#08183c`) that closes every page. Nothing else inverts mid-scroll. Sections
-  on it carry the `on-deep` class, which also declares `--audit-bg` so the contrast checker
-  measures against the real ground rather than the transparent gradient.
-- **Type**: two families only. Archivo, a grotesque drawn for signage and industrial print, carries
-  the display type and every figure and small label. Manrope carries the reading. There is no
-  monospace: on a building contractor it reads as costume, and it cost a third font file.
-- **Radius**: 2 / 3 / 5px. Sharp, to match the chevron geometry of the mark.
-- **Motion**: 150 to 300ms on state, `cubic-bezier(0.23, 1, 0.32, 1)` for anything entering.
-  Everything above a hover state is gated behind `prefers-reduced-motion`.
+- **Navy ink** `#0a1630` for type, **royal blue** `#1b5cd0` (from the company profile wordmark) for
+  everything you can act on, and **demarcation yellow** `#f5b300`, borrowed from the aisle lines in
+  the site photographs, used only as a marker or highlight. Never yellow text on white.
+- **White surfaces** with a `#f5f7fb` mist band for alternating sections. The only dark ground is the
+  navy project panel and the closing block (conversion band and footer).
+- **Type**: Geist, one variable family. Display at 600 with tight negative tracking, reading at 400,
+  every figure with tabular numerals.
+- **Radius**: 10 / 14 / 20 / 28px, pill buttons. Soft, modern, and consistent across cards and media.
+- **Motion**: short rises on scroll through `Reveal`, hover lifts on cards, and nothing that moves
+  under `prefers-reduced-motion`. The custom cursor was removed for usability.
 
-To change the accent, edit the `--color-accent-*` ramp. Keep `600` and `700` dark enough to clear
-4.5:1 on white; `node tests/audit.mjs` checks this against the rendered colours on every page.
+### Photography
 
-### The logo
+`src/scripts/build-photos.mjs` is the single photo pipeline. It lists every image the site uses:
 
-The mark was rebuilt as vector artwork (`src/components/brand/`). It is two-tone blue, following
-the company profile rather than the navy and gold of the invoice template. It reverses cleanly onto
-the deep blue block, scales to a favicon, and the wordmark is real text so it stays selectable. If
-the original vector files turn up, drop them in and swap the component.
+- **`site`**: real Dainamo photographs from `references/Client Pictures`. These carry every claim about
+  the work: the hero, the service cards, the site photo rail, the capability page strips and the Work
+  gallery. Captions and alt text live in `src/content/photos.ts` and describe only what is visible.
+- **`scene`**: generated environment images in `references/generated` (sector settings, the
+  Johannesburg skyline, a survey detail, a spray application). They set the scene and are never
+  presented as Dainamo projects: `Frame` tags every one as *Illustrative*, and `describePhoto()` keeps
+  their alt text honest.
+
+- **Enhanced**: `references/enhanced` holds upscaled copies of the phone photographs most used on
+  the site (Higgsfield's upscaler, no generative edits: same scene, same framing, cleaner detail). The
+  pipeline uses an enhanced file automatically when its name matches the original. Close-ups of bare
+  damaged concrete are deliberately left out, because upscaling smooths real texture, and a before
+  photograph has to look exactly as it was.
+
+To add a photograph, drop the source in, add a line to `SOURCES`, run the script for that key, then
+caption it in `src/content/photos.ts`.
+
+### Before and after
+
+`src/components/sections/BeforeAfter.tsx`, on the home page and the Work page. A drag slider (a
+native range input underneath, so arrow keys and screen readers work) with a switcher for each job.
+Pairs live in `beforeAfterPairs` in `src/content/photos.ts`, and each pair must be two photographs of
+the same spot on the same job. Each layer takes its own `position` and `zoom` so shots taken from
+slightly different spots line up on the subject. The two current pairs are a warehouse joint repair
+and a residential resin floor. More real pairs from site are the best way to strengthen this section.
 
 ### The hero
 
-The hero is the before and after slider, full bleed, with the copy on a scrim over it. It replaced a
-headline-left / photo-right split, which is the composition every contractor site in the country
-uses. Proof beats a claim for this buyer, and it gives a visitor something to do in the first three
-seconds. The seam sweeps open once on load through the Web Animations API to teach the drag, then
-hands control over; any real pointer input cancels the demo immediately.
+A real photograph of self-levelling epoxy being spread on a commercial floor, next to the proposition
+and the primary action. It replaced a generated before and after slider of a building Dainamo never
+worked on.
 
-### Scroll reveals
+### The Work page
 
-`src/components/motion/Reveal.tsx`. Three shapes: `rise` and `settle` run through Motion, `wipe`
-uncovers photography with a CSS `clip-path` transition.
-
-The clip goes on an inner element, never on the observed one. A clipped element reports an
-intersection ratio of zero, so clipping the element you are watching means it can never register as
-in view and the reveal waits on itself forever. `tests/audit.mjs` checks for exactly this: a reveal
-sitting in the viewport that never fired.
-
-### The cursor
-
-`src/components/chrome/Cursor.tsx`. A dot pinned to the true pointer plus a spring-trailed ring.
-States come from `data-cursor` on the element under the pointer: `link`, `cta`, `media`, `drag`,
-`text`, `disabled`. It only activates on a precise pointer with motion allowed; touch devices and
-reduced-motion users keep the native cursor untouched.
-
----
+A filterable gallery of the curated site photographs, grouped by discipline, with a native `<dialog>`
+lightbox (focus trap, Escape to close, arrow keys to step), followed by the Buccleuch project record.
 
 ## Search, answer engines and local visibility
 
@@ -165,9 +162,8 @@ These are unknowns from the source material, not omissions. Nothing has been inv
    each client in the studio. The `permissionConfirmed` flags are currently **false**.
 4. **The case study.** Figures (26 747 m², 554 m, 116 balustrades, 4 months) come from the real
    project document. The client name is deliberately omitted and only the suburb is shown.
-5. **Before and after photography.** The images currently on the site are generated stand-ins that
-   match the described work. Replace them with real site photographs, which will also make the
-   comparison slider far more persuasive.
+5. **Before and after photography.** The generated stand-ins are gone and the slider now uses two
+   real pairs. Ask the team to photograph the same spot before and after on every job from now on.
 6. **Banking details** are not on the website at all, on purpose. Keep it that way.
 7. **Deposit percentage** is described as "stated on each quotation" rather than fixed at 70%,
    because that number should not be a public commitment.

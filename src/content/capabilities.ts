@@ -22,10 +22,10 @@ export const capabilities: Capability[] = [
     name: 'Epoxy and resin flooring',
     shortName: 'Resin flooring',
     flagship: true,
-    media: 'coatings-warehouse-floor',
+    media: 'epoxy-pour-wide',
     answer:
       'Dainamo Holdings installs epoxy and polyurethane resin floor systems in hospitals, food production facilities, warehouses and workshops across Johannesburg and Gauteng, including surface preparation, moisture testing, coving, screeds, topcoats and line marking.',
-    lede: 'A resin floor is a build-up, not a coat of paint. What goes underneath decides whether it lasts five years or fails in one.',
+    lede: 'A resin floor is several layers: preparation, primer, body coat and topcoat. Most early failures start in the preparation underneath.',
     systems: [
       {
         name: 'Epoxy self-levelling',
@@ -61,26 +61,26 @@ export const capabilities: Capability[] = [
     name: 'Waterproofing',
     shortName: 'Waterproofing',
     flagship: true,
-    media: 'waterproofing-torch-on',
+    media: 'roof-membrane',
     answer:
       'Dainamo Holdings carries out torch-on membrane waterproofing, liquid-applied systems, roof sealing and remedial repairs to flat roofs, parapets, gutters, balconies and podiums on commercial and residential buildings in Johannesburg.',
-    lede: 'Water finds the cheapest detail on the building. Roofs rarely fail in the middle: they fail at the upstand, the outlet and the joint.',
+    lede: 'Flat roofs usually leak at the details: upstands, outlets, penetrations and joints. Most of the work goes into those.',
     systems: [
       {
         name: 'Torch-on membrane',
-        detail: 'Bituminous sheet bonded with a gas torch. The workhorse system for flat concrete roofs and podiums.',
+        detail: 'Bituminous sheet bonded with a gas torch. The usual choice for flat concrete roofs and podiums.',
       },
       {
         name: 'Liquid applied membrane',
-        detail: 'Seamless and detail-friendly. Suits complex plant areas, gutters and roofs crowded with penetrations.',
+        detail: 'Applied as a liquid, so there are no seams. Suits plant areas, gutters and roofs with many penetrations.',
       },
       {
         name: 'Parapet and upstand detailing',
-        detail: 'Terminations, chases and flashings taken back into the structure rather than sealed at the surface.',
+        detail: 'Terminations, chases and flashings taken back into the structure and fixed there.',
       },
       {
         name: 'Balcony and walkway systems',
-        detail: 'Trafficable finishes over the membrane so residents can use the surface the day cure is complete.',
+        detail: 'A walkable finish over the membrane, usable once it has cured.',
       },
     ],
     scope: [
@@ -100,10 +100,10 @@ export const capabilities: Capability[] = [
     name: 'Damp proofing',
     shortName: 'Damp proofing',
     flagship: true,
-    media: 'damp-proofing-injection',
+    media: 'wall-injection',
     answer:
       'Dainamo Holdings diagnoses and treats rising damp, penetrating damp and condensation in Johannesburg buildings using injected damp-proof courses, tanking systems, remedial plaster and damp-resistant coatings, after identifying the actual source of the moisture.',
-    lede: 'Damp is a symptom. Painting over it moves the problem six months down the line and takes the plaster with it.',
+    lede: 'Damp has a source: rising moisture, a leak or condensation. Painting over it without treating the source lets it come back through the new finish.',
     systems: [
       {
         name: 'Injected damp-proof course',
@@ -115,11 +115,11 @@ export const capabilities: Capability[] = [
       },
       {
         name: 'Remedial replastering',
-        detail: 'Salt-resistant render so residual salts cannot bloom back through the new finish.',
+        detail: 'Salt-resistant render that stops salts left in the wall from coming through the new finish.',
       },
       {
         name: 'Damp Prime and sealer coats',
-        detail: 'Preparation coats on affected substrates so the decorative system has something stable to sit on.',
+        detail: 'Preparation coats on affected walls, so the paint has a stable surface to bond to.',
       },
     ],
     scope: [
@@ -138,10 +138,10 @@ export const capabilities: Capability[] = [
     name: 'Maintenance contracts',
     shortName: 'Maintenance',
     flagship: true,
-    media: 'maintenance-rooftop-plant',
+    media: 'roof-ridge-blue',
     answer:
       'Dainamo Holdings holds planned and reactive building maintenance contracts for commercial, industrial and managed residential property in Gauteng, covering building fabric, plumbing, electrical, HVAC and specialist coatings under one accountable contractor.',
-    lede: 'Most maintenance budgets are spent twice: once reacting to a failure, and again repairing what the failure damaged.',
+    lede: 'Regular inspections catch a blocked gutter or a lifting membrane before it damages ceilings, walls and stock.',
     systems: [
       {
         name: 'Planned preventative schedule',
@@ -149,11 +149,11 @@ export const capabilities: Capability[] = [
       },
       {
         name: 'Reactive call outs',
-        detail: 'One number for the fabric trades, with response times set in the contract rather than in the moment.',
+        detail: 'One number to call for the building trades, with response times agreed in the contract.',
       },
       {
         name: 'Condition reporting',
-        detail: 'Photographed findings, ranked by urgency, so the trustees or the board can approve spend with evidence.',
+        detail: 'Photographed findings ranked by urgency, which trustees or a board can use to approve spending.',
       },
       {
         name: 'Multi-trade cover',
@@ -169,17 +169,17 @@ export const capabilities: Capability[] = [
       'Annual review of the schedule against what actually failed',
     ],
     sectors: ['Retail and shopping centres', 'Residential complexes', 'Industrial and warehousing'],
-    buyerQuestion: 'Can one contractor carry the whole building?',
+    buyerQuestion: 'Can one contractor look after the whole building?',
   },
   {
     slug: 'protective-and-industrial-coatings',
     name: 'Protective and industrial coatings',
     shortName: 'Protective coatings',
     flagship: false,
-    media: 'hero-facade',
+    media: 'scene-spray',
     answer:
       'Dainamo Holdings applies protective and decorative coating systems to exterior facades, structural steel, plant rooms and industrial surfaces in Johannesburg, using airless spray application for a uniform finish over large areas.',
-    lede: 'On a large elevation the finish is decided by the preparation and the application method, long before anyone opens a tin.',
+    lede: 'On a large elevation, preparation and the application method decide how even the finish is.',
     systems: [
       {
         name: 'Exterior facade systems',
@@ -187,7 +187,7 @@ export const capabilities: Capability[] = [
       },
       {
         name: 'Airless spray application',
-        detail: 'Even film build across large elevations, with a smoother finish than roller work can reach.',
+        detail: 'An even coat across large elevations, smoother than a roller finish.',
       },
       {
         name: 'Structural steel protection',
@@ -195,7 +195,7 @@ export const capabilities: Capability[] = [
       },
       {
         name: 'Specialised coating systems',
-        detail: 'Newer protective products where the substrate or the environment rules out conventional paint.',
+        detail: 'Newer protective products for surfaces or conditions where ordinary paint will not hold.',
       },
     ],
     scope: [
@@ -215,14 +215,14 @@ export const capabilities: Capability[] = [
     name: 'Thermoplastic and outdoor works',
     shortName: 'Line marking',
     flagship: false,
-    media: 'coatings-warehouse-floor',
+    media: 'thermo-footprints',
     answer:
       'Dainamo Holdings lays thermoplastic road marking, parking bay demarcation, directional arrows and playground surfacing for shopping centres, business parks, schools and industrial sites in Gauteng.',
-    lede: 'Demarcation is the cheapest safety control on a site, and the first thing an insurer looks for after an incident.',
+    lede: 'Clear markings keep vehicles and pedestrians apart on busy sites, and they are quick to lay compared with most safety work.',
     systems: [
       {
         name: 'Thermoplastic road marking',
-        detail: 'Hot-applied and long lasting for entrances, aisles and traffic circles.',
+        detail: 'Hot-applied and hard wearing, for entrances, aisles and traffic circles.',
       },
       {
         name: 'Parking and bay demarcation',
@@ -262,7 +262,7 @@ export const supportingTrades = [
   },
   {
     name: 'Solar and backup power',
-    detail: 'Solar installations, backup and energy solutions, servicing.',
+    detail: 'Solar installation, backup power and servicing.',
   },
   {
     name: 'HVAC',
@@ -271,6 +271,10 @@ export const supportingTrades = [
   {
     name: 'Interior finishes',
     detail: 'Skimming, plastering, ceilings, drywall partitioning, painting and spray painting.',
+  },
+  {
+    name: 'General repairs and handyman work',
+    detail: 'Everyday repairs and maintenance jobs, on their own or as part of a larger contract.',
   },
   {
     name: 'Architecture and construction',

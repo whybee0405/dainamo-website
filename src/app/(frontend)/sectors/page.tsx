@@ -7,7 +7,7 @@ import { breadcrumbSchema, jsonLd } from '../../../lib/schema'
 import { getCmsSectors } from '../../../lib/cms'
 
 const ANSWER =
-  'Dainamo Holdings works in five kinds of building: shopping centres, hospitals and healthcare facilities, warehousing and industrial sites, residential complexes, and commercial offices. Each one places different limits on access, hours, dust, odour and cure times, and the programme is written around those limits rather than around the trade.'
+  'Dainamo Holdings works in five kinds of building: shopping centres, hospitals and healthcare facilities, warehousing and industrial sites, residential complexes, and commercial offices. Each one limits access, working hours, dust, odour and cure times differently, and the programme is written around those limits.'
 
 export const metadata: Metadata = {
   title: 'Sectors we work in',
@@ -28,8 +28,14 @@ export default async function SectorsPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumbSchema(crumbs))} />
-      <PageHead title="The building sets the method." answer={ANSWER} crumbs={crumbs} />
-      <SectorGrid sectors={sectors} />
+      <PageHead
+        title="The sectors we work in."
+        answer={ANSWER}
+        crumbs={crumbs}
+        media="sector-industrial"
+        mediaAlt="Illustrative scene: a warehouse with a grey resin floor and yellow aisle markings"
+      />
+      <SectorGrid sectors={sectors} showHead={false} />
       <ConversionBand />
     </>
   )

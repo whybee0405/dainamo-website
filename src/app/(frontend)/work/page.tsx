@@ -2,12 +2,13 @@ import type { Metadata } from 'next'
 
 import { PageHead } from '../../../components/sections/PageHead'
 import { CaseStudy } from '../../../components/sections/CaseStudy'
-import { ClientGallery } from '../../../components/sections/ClientGallery'
+import { WorkGallery } from '../../../components/sections/WorkGallery'
+import { BeforeAfter } from '../../../components/sections/BeforeAfter'
 import { ConversionBand } from '../../../components/sections/ConversionBand'
 import { breadcrumbSchema, jsonLd, projectSchema } from '../../../lib/schema'
 
 const ANSWER =
-  'Dainamo Holdings has completed exterior refurbishment, waterproofing, damp proofing, resin flooring and maintenance contracts across Johannesburg. Projects are published only where the client has agreed to it, which is why this page is short rather than padded out.'
+  'Dainamo Holdings has completed resin flooring, waterproofing, roof sealing, floor repairs, damp proofing, line marking and full exterior refurbishments across Johannesburg. Every photograph on this page was taken on a Dainamo site. Clients are not named without their permission.'
 
 export const metadata: Metadata = {
   title: 'Work',
@@ -50,11 +51,21 @@ export default function WorkPage() {
         )}
       />
 
-      <PageHead title="Work we can show you." answer={ANSWER} crumbs={crumbs} />
+      <PageHead
+        title="Work we can show you."
+        answer={ANSWER}
+        crumbs={crumbs}
+        media="grinding-warehouse"
+        mediaAlt="A Dainamo operator diamond grinding a warehouse floor between yellow aisle markings"
+      />
 
-      <CaseStudy />
+      <BeforeAfter tone="mist" />
 
-      <ClientGallery />
+      <WorkGallery />
+
+      <div id="project">
+        <CaseStudy showLink={false} />
+      </div>
 
       <section className="detail section" aria-labelledby="scope-heading">
         <div className="shell detail__grid">
@@ -63,8 +74,8 @@ export default function WorkPage() {
               The scope as it was written
             </h2>
             <p className="detail__note">
-              Taken from the contract document. Everything below was priced, agreed and signed off
-              before the first machine arrived on site.
+              Taken from the contract document. Everything below was priced and agreed before work
+              started.
             </p>
           </div>
 
@@ -88,14 +99,14 @@ export default function WorkPage() {
           </div>
           <div className="detail__prose">
             <p>
-              All paint on this contract was applied using professional airless spray machines. On a
-              building of this size that is the difference between an even film across every
-              elevation and a finish that shows every roller lap from the parking area.
+              All paint on this contract was applied with airless spray machines. On a building this
+              size, spraying gives an even coat across every elevation, without the roller marks
+              that show from the parking area.
             </p>
             <p>
-              Scaffolding stood on site for four months. Access on a live residential complex is the
-              part of the programme that has to be agreed first, because it decides how the work is
-              sequenced, where residents park and how long any one elevation is out of use.
+              Scaffolding stood on site for four months. On an occupied complex, access is agreed
+              first, because it decides the order of the work, where residents park and how long
+              each elevation is out of use.
             </p>
           </div>
         </div>

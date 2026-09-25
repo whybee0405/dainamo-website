@@ -8,7 +8,7 @@ import { getCmsCompany } from '../../../lib/cms'
 import { breadcrumbSchema, jsonLd } from '../../../lib/schema'
 
 const ANSWER =
-  'Dainamo Holdings (Pty) Ltd is a multi-disciplinary construction, engineering and maintenance company based in City Deep, Johannesburg. It began in general handyman work and repositioned into specialist coatings, waterproofing, damp proofing and contract maintenance for commercial, industrial, healthcare and managed residential property.'
+  'Dainamo Holdings (Pty) Ltd is a multi-disciplinary construction, engineering and maintenance company based in City Deep, Johannesburg. It began in general handyman work and has grown into specialist coatings, waterproofing, damp proofing and contract maintenance for commercial, industrial, healthcare and managed residential property, while still carrying out general repairs.'
 
 export const metadata: Metadata = {
   title: 'Company',
@@ -23,12 +23,12 @@ const crumbs = [
 ]
 
 const values = [
-  { name: 'Integrity', detail: 'The number on the quotation is the number on the invoice.' },
-  { name: 'Quality', detail: 'The system is built to specification, not to whatever is in the van.' },
-  { name: 'Safety', detail: 'Site establishment and protection is priced, not improvised.' },
-  { name: 'Reliability', detail: 'The programme we agree is the programme we work to.' },
-  { name: 'Innovation', detail: 'Newer protective systems where conventional products will not hold.' },
-  { name: 'Customer satisfaction', detail: 'Handover happens when the client signs it off, not when we leave.' },
+  { name: 'Integrity', detail: 'Itemised quotations, with exclusions written down.' },
+  { name: 'Quality', detail: 'Systems applied to the specified build, with the preparation done properly.' },
+  { name: 'Safety', detail: 'Barriers, signage and site protection priced into every job.' },
+  { name: 'Reliability', detail: 'We work to the programme agreed before the job starts.' },
+  { name: 'Innovation', detail: 'Newer protective systems where ordinary products will not hold.' },
+  { name: 'Customer satisfaction', detail: 'A final inspection with the client before handover.' },
 ]
 
 export const dynamic = 'force-dynamic'
@@ -41,45 +41,50 @@ export default async function CompanyPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumbSchema(crumbs))} />
 
-      <PageHead title="Dainamo Holdings (Pty) Ltd" answer={ANSWER} crumbs={crumbs} />
+      <PageHead
+        title="A Johannesburg contractor, built around specialist work."
+        answer={ANSWER}
+        crumbs={crumbs}
+        media="scene-skyline"
+        mediaPosition="40% 50%"
+        mediaAlt="Illustrative scene: the Johannesburg skyline at dawn, seen from the south east"
+      />
 
       <section className="story section" aria-labelledby="story-heading">
         <div className="shell story__grid">
           <Reveal variant="wipe" className="story__media" amount={0.2}>
             <Frame
-              media="maintenance-rooftop-plant"
-              alt="A Dainamo Holdings technician servicing rooftop plant on a commercial building"
+              media="wall-crew"
+              alt="A Dainamo crew replastering a long boundary wall from a scaffold"
               sizes="(min-width: 900px) 44vw, 100vw"
-              ratio={1.15}
+              ratio={1.1}
             />
           </Reveal>
 
           <div className="story__body">
             <h2 id="story-heading" className="display-2">
-              Why we stopped doing handyman work.
+              How the company grew.
             </h2>
             <p>
-              The handyman market in Johannesburg is crowded, and it competes almost entirely on
-              price. As the volume and the type of work changed, so did the company. Today the focus
-              is on specialised projects for businesses, shopping centres, hospitals, warehouses and
-              townhouse complexes.
+              Dainamo started in general handyman work, and that work is still part of what we do.
+              Over time the company took on larger and more technical jobs for businesses, shopping
+              centres, hospitals, warehouses and townhouse complexes.
             </p>
             <p>
               Specialist coatings, waterproofing and damp treatment need training, equipment and
-              product knowledge that a general trade does not carry. There is less competition in
-              that market, and more room to be judged on whether the work lasts rather than on
-              whether the quote was the cheapest one in the inbox.
+              product knowledge. There is less competition for that work, and clients judge it on
+              whether it lasts as well as on price.
             </p>
             <p>
-              That decision also changed who we work for. Commercial and institutional clients need
-              continuity, documentation and someone accountable when the roof leaks again in
-              February. That is the relationship the company is now built around.
+              Those jobs brought different clients. Commercial and institutional clients want
+              continuity, documentation and a contractor who answers the phone when a roof leaks
+              again in February.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="mission section" aria-labelledby="mission-heading">
+      <section className="mission section section--mist" aria-labelledby="mission-heading">
         <div className="shell">
           <h2 id="mission-heading" className="sr-only">
             Mission, vision and values
@@ -162,8 +167,8 @@ export default async function CompanyPage() {
             <p className="details__areas">{serviceAreas.join(' · ')}</p>
             <p className="details__note">
               Larger contracts are taken elsewhere in South Africa by arrangement. Travel and
-              accommodation for work outside Gauteng is quoted separately and shown as a line on the
-              document rather than absorbed into the rate.
+              accommodation for work outside Gauteng is quoted separately, as its own line on the
+              quotation.
             </p>
           </div>
         </div>

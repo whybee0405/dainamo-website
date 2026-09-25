@@ -30,7 +30,7 @@ export function organisationGraph() {
         image: `${SITE_URL}/opengraph-image`,
         logo: {
           '@type': 'ImageObject',
-          url: `${SITE_URL}/brand/dainamo-icon.svg`,
+          url: `${SITE_URL}/brand/primary-light.avif`,
           caption: company.legalName,
         },
         address: {

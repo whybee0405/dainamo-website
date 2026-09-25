@@ -5,6 +5,7 @@ test-results
 playwright-report
 scratch
 references/Client Pictures
+references/generated
 references/*.jpeg
 references/*.jpg
 .env

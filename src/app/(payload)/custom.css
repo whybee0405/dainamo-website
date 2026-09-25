@@ -191,6 +191,20 @@ html[data-theme='dark'] {
   line-height: 1;
 }
 
+.brand-lockup__picture,
+.brand-emblem {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
+.brand-lockup__image,
+.brand-emblem img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .lockup__type {
   display: flex;
   flex-direction: column;
